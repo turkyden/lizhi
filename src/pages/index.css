@@ -1,0 +1,4 @@
+.react-jinke-music-player-main .music-player-panel {
+  left: 256px;
+  width: calc(100% - 256px);
+}
