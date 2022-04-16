@@ -1248,7 +1248,12 @@ body ::-webkit-scrollbar,
   width: calc(100% - 256px);
   position: fixed;
   transition: background-color .35s cubic-bezier(.43,-.1,.16,1.1);
-  z-index: 99
+  z-index: 99;
+}
+
+.backdrop-blur-md {
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
 .react-jinke-music-player-main .music-player-panel .panel-content {
