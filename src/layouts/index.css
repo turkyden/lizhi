@@ -1,0 +1,30 @@
+body ::-webkit-scrollbar-thumb,
+.react-jinke-music-player-main ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 20px;
+  opacity: .5
+}
+
+body ::-webkit-scrollbar,
+.react-jinke-music-player-main ::-webkit-scrollbar {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 4px
+}
+
+.audio-lists-panel-header-title {
+  color: #fff;
+}
+
+.react-jinke-music-player-main .music-player-panel {
+  box-shadow: none;
+  left: 256px;
+  width: calc(100% - 256px);
+}
+
+.audio-lists-panel{
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.audio-lists-panel-content .audio-item:active, .audio-lists-panel-content .audio-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

@@ -4,18 +4,20 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [
-    { path: '/', component: '@/pages/index' },
-  ],
+  favicon: './favico.ico',
+  hash: true,
+  history: {
+    type: 'hash'
+  },
   headScripts: [
     'https://cdn.tailwindcss.com',
-    `
-    tailwind.config = {
-      corePlugins: {
-        preflight: false,
-      }
-    }
-    `
+    // `
+    // tailwind.config = {
+    //   corePlugins: {
+    //     preflight: false,
+    //   }
+    // }
+    //`
   ],
   scripts: [
     'https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js'
