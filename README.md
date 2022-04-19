@@ -49,6 +49,11 @@ Run the app with npm script
 npm run start
 ```
 
+## Refferenes
+
+- https://www.lizhinb.com/
+- https://github.com/GoldSubmarine/lizhi
+
 ## LICENSE
 
 [MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved.
