@@ -51,7 +51,7 @@ npm run start
 
 ## Refferenes
 
-- https://www.lizhinb.com/
+- https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
 
 ## LICENSE
