@@ -10,6 +10,33 @@
 
 ![logos](./screenshot.png)
 
+## 🌏 永远
+
+所有资源托管于 Github, 使用 `jsdelivr`，CDN 全球加速。
+
+下载一首歌：
+
+```
+https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/1701/热河.mp3
+```
+
+索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)
+
+```json
+{
+  name: "阿兰",
+  artist: "专辑-108个关键词",
+  url: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/阿兰.mp3",
+  cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/cover.png",
+},
+  name: "忽然",
+  artist: "专辑-108个关键词",
+  url: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/忽然.mp3",
+  cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/cover.png",
+}
+...
+```
+
 ## 📹 收录视频
 
 - 2009-我爱南京跨年演唱会
