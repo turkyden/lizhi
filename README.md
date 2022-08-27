@@ -14,13 +14,13 @@
 
 所有资源托管于 Github, 使用 `jsdelivr`，CDN 全球加速。
 
-下载一首歌：
+你可以这样下载一首歌：
 
 ```
 https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/1701/热河.mp3
 ```
 
-索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)
+歌单索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)，感兴趣的小伙伴可以自行打造自己的播放器哦！
 
 ```json
 {
