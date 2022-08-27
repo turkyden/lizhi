@@ -3,7 +3,7 @@
 <p align="center">开箱即用，一个珍藏了李志音乐作品集的音乐播放器</p>
 
 <div align="center">
-  <a href="https://nj-lizhi.vercel.app/" target="_blank">：：：✨ Live Demo ✨ ：：：</a>
+  <a href="https://lizhi.turkyden.com" target="_blank">：：：✨ Live Demo ✨ ：：：</a>
 </div>
 
 <br/>
