@@ -85,6 +85,8 @@ npm run start
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
 
+感谢 GoldSubmarine 发起的的资源库库[nj-lizhi](https://github.com/nj-lizhi)
+
 ## LICENSE
 
 [MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved.
