@@ -12,7 +12,7 @@
 
 ## 🌏 永久托管
 
-所有资源托管于 Github, 使用 `jsdelivr`，CDN 全球加速。
+所有资源托管于 Github 仓库, 使用 `jsdelivr`，CDN 全球加速。
 
 你可以这样下载一首歌：
 
