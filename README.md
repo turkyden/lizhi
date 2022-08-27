@@ -1,6 +1,6 @@
 <h1 align="center">南京 · 李志</h1>
 
-<p align="center">开箱即用，一个珍藏了李志音乐作品集的音乐播放器</p>
+<p align="center">开箱即用，一个珍藏了李志音乐作品集的在线播放器</p>
 
 <div align="center">
   <a href="https://lizhi.turkyden.com" target="_blank">：：：✨ Live Demo ✨ ：：：</a>
