@@ -27,12 +27,12 @@ https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/1701/热河.mp3
   name: "阿兰",
   artist: "专辑-108个关键词",
   url: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/阿兰.mp3",
-  cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/cover.png",
+  cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/cover.png",
 },
   name: "忽然",
   artist: "专辑-108个关键词",
   url: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/忽然.mp3",
-  cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/cover.png",
+  cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/cover.png",
 }
 ...
 ```
