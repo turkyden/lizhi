@@ -22,7 +22,7 @@ https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/1701/热河.mp3
 
 歌单索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)，感兴趣的小伙伴可以自行打造自己的播放器哦！
 
-```json
+```js
 {
   name: "阿兰",
   artist: "专辑-108个关键词",
@@ -34,7 +34,6 @@ https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/1701/热河.mp3
   url: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/忽然.mp3",
   cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/cover.png",
 }
-...
 ```
 
 ## 📹 收录视频
