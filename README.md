@@ -8,7 +8,7 @@
 
 <br/>
 
-https://raw.githubusercontent.com/turkyden/lizhi-app/main/video.mp4
+https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-9287-61ac876bc807.mp4
 
 ![logos](./screenshot.png)
 
