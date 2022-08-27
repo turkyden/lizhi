@@ -10,7 +10,7 @@
 
 ![logos](./screenshot.png)
 
-## 🌏 永远
+## 🌏 永久托管
 
 所有资源托管于 Github, 使用 `jsdelivr`，CDN 全球加速。
 
