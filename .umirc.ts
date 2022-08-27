@@ -20,7 +20,7 @@ export default defineConfig({
     //`
   ],
   scripts: [
-    'https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js'
+    'https://cdn.jsdelivr.net/gh/nj-lizhi/song@main/audio/list.js'
   ],
   fastRefresh: {},
 });
