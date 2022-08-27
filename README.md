@@ -16,8 +16,10 @@
 
 你可以这样下载一首歌：
 
-```
 https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/1701/热河.mp3
+
+```
+https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}.mp3
 ```
 
 歌单索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)，感兴趣的小伙伴可以自行打造自己的播放器哦！
