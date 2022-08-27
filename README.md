@@ -12,7 +12,7 @@
 
 ## 🌏 永久托管
 
-所有资源托管于 Github 仓库, 使用 `jsdelivr`，CDN 全球加速。
+感谢 💚 [GoldSubmarine](https://github.com/GoldSubmarine) 发起的的资源库 [nj-lizhi](https://github.com/nj-lizhi)，所有资源托管于 Github 仓库, 使用 [jsdelivr(https://www.jsdelivr.com/) CDN 全球加速。
 
 你可以这样下载一首歌：
 
@@ -84,8 +84,6 @@ npm run start
 
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
-
-感谢 💚 [GoldSubmarine](https://github.com/GoldSubmarine) 发起的的资源库 [nj-lizhi](https://github.com/nj-lizhi)
 
 ## LICENSE
 
