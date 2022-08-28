@@ -1,123 +1,100 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'umi'
+import { Link } from 'umi';
 
 const LIVE = [
   {
     title: '2014 IO 跨年音乐会',
-    post: '/post/io-封面.jpg'
+    post: '/post/io-封面.jpg',
   },
   {
     title: '2015 看见·北京巡回',
-    post: '/post/2015看见.png'
+    post: '/post/2015看见.png',
   },
   {
     title: '2016 北京不插电',
-    post: '/post/2016-unplugged.png'
+    post: '/post/2016-unplugged.png',
   },
   {
     title: '2019 洗心革面跨年',
-    post: '/post/洗心革面.png'
+    post: '/post/洗心革面.png',
   },
-]
+];
 
-const ALBUM = [
-  {
-    title: '被禁忌的游戏',
-    post: '/post/被禁忌的游戏封面.jpg'
-  },
-  {
-    title: '这个世界会好吗',
-    post: '/post/这个世界会好吗-2015.jpg'
-  },
-  {
-    title: '梵高先生',
-    post: '/post/梵高先生-封面.jpg'
-  },
-  {
-    title: '我爱南京',
-    post: '/post/我爱南京-封面.jpg'
-  },
-  {
-    title: '你好，郑州',
-    post: '/post/你好郑州-封面.jpg'
-  },
-  {
-    title: '1701',
-    post: '/post/1701封面-1024x1024.jpg'
-  },
-  {
-    title: 'F',
-    post: '/post/F封面.jpg'
-  },
-  {
-    title: '8',
-    post: '/post/8.jpg'
-  },
-  {
-    title: '在每一条伤心的应天大街上',
-    post: '/post/在每一个-1024x1024.jpg'
-  },
-]
+interface IAlbum {
+  id: string;
+  cover: string;
+  name: string;
+}
+
+interface IAlbumList extends Array<IAlbum> {}
+
+interface ISong {
+  artist: string;
+  cover: string;
+  name: string;
+  url: string;
+}
+
+interface ISongList extends Array<ISong> {}
 
 export default function IndexPage() {
-
-  const [album, setAlbum] = useState([]);
-
-  useEffect(() => {
-    const groupBy = (arr, fn) =>
-      arr
-        .map(typeof fn === 'function' ? fn : val => val[fn])
-        .reduce((acc, val, i) => {
-          acc[val] = (acc[val] || []).concat(arr[i]);
-          return acc;
-        }, {});
-    const obj = groupBy(window.list, 'artist');
-    const arr = Object.keys(obj).map(a => ({
-      title: a,
-      post: obj[a][1]['cover']
-    }));
-    setAlbum(arr);
-  }, [])
-
   return (
     <>
-      <div className='text-3xl font-bold'>Live 现场</div>
-      <div className='text-xl pt-6 pb-4'>Hi 逼粉，今日为你推荐</div>
+      <div className="text-3xl font-bold">Live 现场</div>
+      <div className="text-xl pt-6 pb-4">Hi 逼粉，今日为你推荐</div>
 
-      <div className='flex'>
-        <div className='mr-6'>
-          <Link className='block w-[410px] h-48 rounded-xl overflow-hidden' to="/detail">
+      <div className="flex">
+        <div className="mr-6">
+          <Link
+            className="block w-[410px] h-48 rounded-xl overflow-hidden"
+            to="/detail"
+          >
             {/* <video className='w-full' poster='https://www.lizhi334.com/wp-content/uploads/2022/08/lizhi-20-scaled.jpeg' loop muted autoPlay>
               <source src="https://www.lizhi334.com/wp-content/uploads/2022/03/%E9%A6%96%E9%A1%B5.mp4" type='video/mp4' />
             </video> */}
-            <img className='object-cover w-full h-48 rounded-xl transition transform hover:scale-110 cursor-pointer' src="/post/lizhi.jpeg" alt="cover" />
+            <img
+              className="object-cover w-full h-48 rounded-xl transition transform hover:scale-110 cursor-pointer"
+              src="/post/lizhi.jpeg"
+              alt="cover"
+            />
           </Link>
-          <div className='pt-4'>我们不能失去信仰 · 李志</div>
+          <div className="pt-4">我们不能失去信仰 · 李志</div>
         </div>
-        {
-          LIVE.map((v, i) => (
-            <Link className='mr-6 mb-8 hover:text-white' to="/detail">
-              <img className='w-48 h-48 rounded-xl transition transform hover:scale-110 cursor-pointer' src={v.post} alt="cover" />
-              <div className='pt-4'>{v.title}</div>
-            </Link>
-          ))
-        }
+        {LIVE.map((v, i) => (
+          <Link
+            className="mr-6 mb-8 hover:text-white"
+            key={v.title}
+            to="/detail"
+          >
+            <img
+              className="w-48 h-48 rounded-xl transition transform hover:scale-110 cursor-pointer"
+              src={v.post}
+              alt="cover"
+            />
+            <div className="pt-4">{v.title}</div>
+          </Link>
+        ))}
       </div>
 
       <br />
 
+      <div className="text-3xl font-bold pb-6">专辑</div>
 
-      <div className='text-3xl font-bold pb-6'>专辑</div>
-
-      <div className='flex flex-wrap'>
-        {
-          ALBUM.map((v, i) => (
-            <Link className='mr-6 mb-8 hover:text-white' to="/detail">
-              <img className='w-48 h-48 rounded-xl transition transform hover:scale-110 cursor-pointer' src={v.post} alt="cover" />
-              <div className='pt-4'>{v.title}</div>
-            </Link>
-          ))
-        }
+      <div className="flex flex-wrap">
+        {(window.album as IAlbumList).map((v, i) => (
+          <Link
+            className="mr-6 mb-8 hover:text-white"
+            key={v.id}
+            to={`/album/${v.id}`}
+          >
+            <img
+              className="w-48 h-48 rounded-xl transition transform hover:scale-105 cursor-pointer"
+              src={v.cover}
+              alt="cover"
+            />
+            <div className="pt-4">{v.name}</div>
+          </Link>
+        ))}
       </div>
 
       <br />
