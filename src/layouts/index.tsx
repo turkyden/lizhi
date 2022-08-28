@@ -18,13 +18,13 @@ const options = {
   theme: 'dark',
   locale: 'zh_CN',
   showMediaSession: true,
-  autoPlay: true,
+  autoPlay: false,
   toggleMode: false,
   mode: 'full',
   showLyric: true,
 };
 
-export default function Layout({ children }) {
+export default function Layout({ children, location }) {
   const [active, setActive] = useState('all');
 
   useEffect(() => {
@@ -35,6 +35,8 @@ export default function Layout({ children }) {
       .querySelector('.audio-lists-panel')
       .classList.add('backdrop-blur-md');
   }, []);
+
+  debugger;
 
   return (
     <div className="w-screen h-screen bg-black text-white pl-64">
@@ -80,56 +82,49 @@ export default function Layout({ children }) {
 
           <h3 className="text-gray-500 text-sm mt-8 mb-4">所有作品</h3>
           <ul className="space-y-2">
-            <li
-              className={`transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
-                active === 'all' &&
+            <Link
+              to="/"
+              className={`block hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+                location.pathname === '/' &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
-              onClick={() => setActive('all')}
             >
-              <Link className="hover:text-white" to="/">
-                🔢<span className="pl-4">全部</span>
-              </Link>
-            </li>
-            <li
-              className={`transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
-                active === 'album' &&
+              🔢<span className="pl-4">全部</span>
+            </Link>
+            <Link
+              to="/album/专辑-梵高先生"
+              className={`block hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+                location.pathname.startsWith('/album') &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
-              onClick={() => setActive('album')}
             >
-              <Link className="hover:text-white" to="/">
-                💿<span className="pl-4">专辑</span>
-              </Link>
-            </li>
-            <li
-              className={`transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
-                active === 'live' &&
+              💿<span className="pl-4">专辑</span>
+            </Link>
+            <Link
+              to="/video"
+              className={`block hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+                location.pathname.startsWith('/video') &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
-              onClick={() => setActive('live')}
             >
-              <Link className="hover:text-white" to="/">
-                ⚡<span className="pl-4">Live</span>
-              </Link>
-            </li>
+              ⚡<span className="pl-4">Live</span>
+            </Link>
           </ul>
 
           <br />
 
-          <h3 className="text-gray-500 text-sm mt-8 mb-4">我的歌单</h3>
+          <h3 className="text-gray-500 text-sm mt-8 mb-4">友情赞助</h3>
           <ul className="space-y-2">
-            <li
-              className={`transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
-                active === 'star' &&
+            <Link
+              to="/star"
+              className={`block hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+                location.pathname.startsWith('/star') &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
               onClick={() => setActive('star')}
             >
-              <Link className="hover:text-white" to="/star">
-                🧡<span className="pl-4">打赏</span>
-              </Link>
-            </li>
+              🧡<span className="pl-4">打赏</span>
+            </Link>
           </ul>
         </div>
 

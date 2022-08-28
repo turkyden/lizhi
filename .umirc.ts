@@ -12,6 +12,8 @@ export default defineConfig({
   headScripts: [
     'https://cdn.tailwindcss.com',
     'https://cdn.jsdelivr.net/gh/nj-lizhi/song@main/audio/list.js',
+    'https://gcore.jsdelivr.net/npm/hls.js@0.14.4/dist/hls.min.js',
+    'https://gcore.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js',
     `
     const groupBy = (arr, fn) =>
       arr

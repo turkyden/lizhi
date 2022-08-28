@@ -64,7 +64,7 @@ export default function IndexPage() {
           <Link
             className="mr-6 mb-8 hover:text-white"
             key={v.title}
-            to="/detail"
+            to="/video"
           >
             <img
               className="w-48 h-48 rounded-xl transition transform hover:scale-110 cursor-pointer"
