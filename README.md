@@ -64,7 +64,7 @@ https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}
 | 零碎                     |                          |
 
 
-## 💻 Contribution
+## 💻 参与贡献
 
 Installed the dependencies of project
 
@@ -78,21 +78,21 @@ Run the app with npm script
 npm run start
 ```
 
-## Device
+## 跨平台
 
 [Powered by Tesla Model 3](https://github.com/turkyden/lizhi-app/issues/1)
 
-## Refferenes
+## 参考链接
 
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
 
-## Stargazers
+## 赞助者
 
-感谢以下赞助者：
+感谢大家对该项目的支持！
 
 [![Stargazers repo roster for @turkyden/lizhi-app](https://reporoster.com/stars/turkyden/lizhi-app)](https://github.com/turkyden/lizhi-app/stargazers)
 
-## LICENSE
+## 版权声明
 
 [MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved.
