@@ -81,10 +81,10 @@ npm run start
 
 ## 参考链接
 
+感谢 💚 [GoldSubmarine](https://github.com/GoldSubmarine) 发起的的音乐资源库 [nj-lizhi](https://github.com/nj-lizhi)，
+
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
-
-感谢 💚 [GoldSubmarine](https://github.com/GoldSubmarine) 发起的的资源库 [nj-lizhi](https://github.com/nj-lizhi)，
 
 ## 赞助者
 
