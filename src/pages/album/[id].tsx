@@ -142,18 +142,18 @@ export default function (props) {
 
       <div className="pt-8">
         {albumList.map((a, i) => (
-          <div className="flex py-4 hover:bg-white/10 transition">
+          <div className="flex py-4 hover:bg-white/10 transition group">
             <div
-              className="w-3/5 pl-2 text-gray-500 cursor-pointer"
+              className="w-3/5 pl-2 text-white group-hover:text-green-500 cursor-pointer"
               onClick={() => onClick(a.name)}
             >
               <span className="pr-4">{i + 1 > 9 ? i + 1 : '0' + (i + 1)}</span>
-              <span className="hover:text-white">{a.name}</span>
+              <span className="">{a.name}</span>
             </div>
             <div className="w-1/5 text-gray-500">李志</div>
             <div className="w-1/5 flex justify-center items-center space-x-8">
               <span
-                className="cursor-pointer text-gray-500 hover:text-white transition"
+                className="cursor-pointer text-gray-500 hover:text-green-500 transition"
                 onClick={() => onClick(a.name)}
               >
                 <svg
@@ -172,7 +172,7 @@ export default function (props) {
                 </svg>
               </span>
               <a
-                className="cursor-pointer text-gray-500 hover:text-white transition"
+                className="cursor-pointer text-gray-500 hover:text-green-500 transition"
                 href={a.url}
                 download
               >

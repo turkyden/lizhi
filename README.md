@@ -87,6 +87,12 @@ npm run start
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
 
+## Stargazers
+
+感谢以下赞助者：
+
+[![Stargazers repo roster for @turkyden/lizhi-app](https://reporoster.com/stars/turkyden/lizhi-app)](https://github.com/turkyden/lizhi-app/stargazers)
+
 ## LICENSE
 
 [MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved.
