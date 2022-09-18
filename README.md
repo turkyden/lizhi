@@ -94,4 +94,4 @@ npm run start
 
 ## 版权声明
 
-[MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved.
+[MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved
