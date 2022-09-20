@@ -9,6 +9,9 @@ export default defineConfig({
   history: {
     type: 'hash',
   },
+  analytics: {
+    baidu: '023e4ef604935de6708edb9e61f17191',
+  },
   headScripts: [
     'https://cdn.tailwindcss.com',
     'https://cdn.jsdelivr.net/gh/nj-lizhi/song@main/audio/list.js',
