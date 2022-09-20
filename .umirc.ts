@@ -9,6 +9,16 @@ export default defineConfig({
   history: {
     type: 'hash',
   },
+  metas: [
+    {
+      name: 'keywords',
+      content: '李志，逼哥，南京市民李先生，音乐作品集，专辑，播放器',
+    },
+    {
+      name: 'description',
+      content: '全网最好用的李志(逼哥)音乐作品专属播放器',
+    }
+  ],
   analytics: {
     baidu: '023e4ef604935de6708edb9e61f17191',
   },
