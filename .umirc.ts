@@ -1,6 +1,7 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
+  title: '李志(逼哥)音乐作品专属播放器',
   nodeModulesTransform: {
     type: 'none',
   },
