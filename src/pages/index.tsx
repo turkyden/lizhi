@@ -46,7 +46,7 @@ export default function IndexPage() {
       <div className="flex">
         <div className="mr-6">
           <Link
-            className="block w-[410px] h-48 rounded-xl overflow-hidden"
+            className="block text-white w-[410px] h-48 rounded-xl overflow-hidden"
             to="/video"
           >
             {/* <video className='w-full' poster='https://www.lizhi334.com/wp-content/uploads/2022/08/lizhi-20-scaled.jpeg' loop muted autoPlay>
@@ -62,7 +62,7 @@ export default function IndexPage() {
         </div>
         {LIVE.map((v, i) => (
           <Link
-            className="mr-6 mb-8 hover:text-white"
+            className="mr-6 mb-8 hover:text-white text-white"
             key={v.title}
             to="/video"
           >
@@ -83,7 +83,7 @@ export default function IndexPage() {
       <div className="flex flex-wrap">
         {(window.album as IAlbumList).map((v, i) => (
           <Link
-            className="mr-6 mb-8 hover:text-white"
+            className="mr-6 mb-8 hover:text-white text-white"
             key={v.id}
             to={`/album/${v.id}`}
           >

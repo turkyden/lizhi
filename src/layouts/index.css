@@ -19,10 +19,12 @@ body ::-webkit-scrollbar,
   box-shadow: none;
   left: 256px;
   width: calc(100% - 256px);
+  z-index: 0;
 }
 
 .audio-lists-panel{
   border: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 0;
 }
 
 .audio-lists-panel-content .audio-item:active, .audio-lists-panel-content .audio-item:hover {

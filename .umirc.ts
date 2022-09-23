@@ -18,16 +18,23 @@ export default defineConfig({
     {
       name: 'description',
       content: '全网最好用的李志(逼哥)音乐作品专属播放器',
-    }
+    },
   ],
   analytics: {
     baidu: '023e4ef604935de6708edb9e61f17191',
   },
   headScripts: [
     'https://cdn.tailwindcss.com',
+    `
+    tailwind.config = {
+      corePlugins: {
+        preflight: false,
+      }
+    }
+    `,
+  ],
+  scripts: [
     'https://cdn.jsdelivr.net/gh/nj-lizhi/song@main/audio/list.js',
-    'https://gcore.jsdelivr.net/npm/hls.js@0.14.4/dist/hls.min.js',
-    'https://gcore.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js',
     `
     const groupBy = (arr, fn) =>
       arr
@@ -43,14 +50,8 @@ export default defineConfig({
       cover: obj[a][1]['cover']
     }));
     `,
-    // `
-    // tailwind.config = {
-    //   corePlugins: {
-    //     preflight: false,
-    //   }
-    // }
-    //`
+    'https://gcore.jsdelivr.net/npm/hls.js@0.14.4/dist/hls.min.js',
+    'https://gcore.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js',
   ],
-  scripts: [],
   fastRefresh: {},
 });

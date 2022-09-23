@@ -50,7 +50,7 @@ function Video() {
   return (
     <>
       <Link
-        className="fixed flex items-center group hover:text-white cursor-pointer"
+        className="fixed flex items-center group hover:text-white cursor-pointer text-white"
         to="/"
       >
         <svg

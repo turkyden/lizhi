@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react';
 import ReactJkMusicPlayer from 'react-jinke-music-player';
+import CommandPalette, {
+  filterItems,
+  getItemIndex,
+  useHandleOpenCommandPalette,
+} from 'react-cmdk';
 import { Link } from 'umi';
 import 'react-jinke-music-player/assets/index.css';
 import './index.css';
+import 'react-cmdk/dist/cmdk.css';
 
 const audioLists = window.list?.map((v) => {
   return {
@@ -27,6 +33,12 @@ const options = {
 export default function Layout({ children, location }) {
   const [active, setActive] = useState('all');
 
+  const [page, setPage] = useState<'root' | 'albums'>('root');
+  const [open, setOpen] = useState<boolean>(false);
+  const [search, setSearch] = useState('');
+
+  useHandleOpenCommandPalette(setOpen);
+
   useEffect(() => {
     document
       .querySelector('.music-player-panel')
@@ -36,7 +48,57 @@ export default function Layout({ children, location }) {
       .classList.add('backdrop-blur-md');
   }, []);
 
-  debugger;
+  const filteredItems = filterItems(
+    [
+      {
+        heading: 'Home',
+        id: 'home',
+        items: [
+          {
+            id: 'home',
+            children: '首页',
+            icon: 'HomeIcon',
+            href: '/',
+          },
+          {
+            id: 'live',
+            children: '现场',
+            icon: 'SupportIcon',
+            href: '/#/video',
+          },
+          {
+            id: 'albums',
+            children: '专辑',
+            icon: 'CollectionIcon',
+            closeOnSelect: false,
+            onClick: () => {
+              setPage('albums');
+            },
+          },
+        ],
+      },
+      {
+        heading: 'Other',
+        id: 'advanced',
+        items: [
+          {
+            id: 'developer',
+            children: '参与贡献',
+            icon: 'CodeIcon',
+            target: '_blank',
+            href: 'https://github.com/turkyden/lizhi-app',
+          },
+          {
+            id: 'star',
+            children: '赞助我们',
+            icon: 'StarIcon',
+            href: '/#/star',
+          },
+        ],
+      },
+    ],
+    search,
+  );
 
   return (
     <div className="w-screen h-screen bg-black text-white pl-64">
@@ -44,11 +106,11 @@ export default function Layout({ children, location }) {
         <div>
           <h2 className="text-white text-3xl mb-4 font-bold">李志</h2>
 
-          <div className="bg-gray-900 relative pointer-events-auto">
-            <button
-              type="button"
-              className="w-full flex items-center text-sm leading-6 text-gray-400 rounded-md ring-1 ring-gray-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-gray-600 bg-gray-800 highlight-white/5 hover:bg-gray-700"
-            >
+          <div
+            onClick={() => setOpen(true)}
+            className="bg-gray-900 relative pointer-events-auto cursor-pointer"
+          >
+            <div className="w-full flex items-center text-sm leading-6 text-gray-400 rounded-md ring-1 ring-gray-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-gray-600 bg-gray-800 highlight-white/5 hover:bg-gray-700">
               <svg
                 width="24"
                 height="24"
@@ -77,14 +139,14 @@ export default function Layout({ children, location }) {
               <span className="ml-auto pl-3 flex-none text-xs font-semibold">
                 ⌘K
               </span>
-            </button>
+            </div>
           </div>
 
           <h3 className="text-gray-500 text-sm mt-8 mb-4">所有作品</h3>
-          <ul className="space-y-2">
+          <div className="space-y-2">
             <Link
               to="/"
-              className={`block hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
                 location.pathname === '/' &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
@@ -93,7 +155,7 @@ export default function Layout({ children, location }) {
             </Link>
             <Link
               to="/album/专辑-梵高先生"
-              className={`block hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
                 location.pathname.startsWith('/album') &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
@@ -102,22 +164,22 @@ export default function Layout({ children, location }) {
             </Link>
             <Link
               to="/video"
-              className={`block hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
                 location.pathname.startsWith('/video') &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
             >
               ⚡<span className="pl-4">Live</span>
             </Link>
-          </ul>
+          </div>
 
           <br />
 
           <h3 className="text-gray-500 text-sm mt-8 mb-4">友情赞助</h3>
-          <ul className="space-y-2">
+          <div className="space-y-2">
             <Link
               to="/star"
-              className={`block hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
                 location.pathname.startsWith('/star') &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
@@ -125,7 +187,7 @@ export default function Layout({ children, location }) {
             >
               🧡<span className="pl-4">打赏</span>
             </Link>
-          </ul>
+          </div>
         </div>
 
         <img
@@ -166,6 +228,37 @@ export default function Layout({ children, location }) {
           ></path>
         </svg>
       </a>
+
+      <CommandPalette
+        onChangeSearch={setSearch}
+        onChangeOpen={setOpen}
+        search={search}
+        isOpen={open}
+        page={page}
+      >
+        <CommandPalette.Page id="root">
+          {filteredItems.length ? (
+            filteredItems.map((list) => (
+              <CommandPalette.List key={list.id} heading={list.heading}>
+                {list.items.map(({ id, ...rest }) => (
+                  <CommandPalette.ListItem
+                    key={id}
+                    index={getItemIndex(filteredItems, id)}
+                    {...rest}
+                  />
+                ))}
+              </CommandPalette.List>
+            ))
+          ) : (
+            <CommandPalette.FreeSearchAction />
+          )}
+        </CommandPalette.Page>
+
+        <CommandPalette.Page id="albums">
+          {/* Projects page */}
+          <CommandPalette.FreeSearchAction />
+        </CommandPalette.Page>
+      </CommandPalette>
     </div>
   );
 }

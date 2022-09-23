@@ -1,4 +1,5 @@
 import { Link } from 'umi';
+import { message } from 'antd';
 
 const ALBUM = [
   {
@@ -61,7 +62,7 @@ export default function (props) {
   return (
     <>
       <Link
-        className="flex items-center mb-8 group hover:text-white cursor-pointer"
+        className="flex items-center mb-8 group text-white hover:text-white cursor-pointer"
         to="/"
       >
         <svg
@@ -96,7 +97,10 @@ export default function (props) {
           </div>
 
           <div className="flex space-x-4 pt-10">
-            <div className="hover:text-white text-center tracking-widest py-2 px-6 rounded-full bg-gradient-to-r from-green-500 to-green-400 text-white cursor-pointer hover:opacity-90 transition shadow-lg shadow-green-500/50 flex items-center">
+            <div
+              onClick={() => onClick(albumList[0].name)}
+              className="transition hover:text-white text-center tracking-widest py-2 px-6 rounded-full bg-gradient-to-r from-green-500 to-green-400 text-white cursor-pointer hover:opacity-90 transition shadow-lg shadow-green-500/50 flex items-center"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4"
@@ -111,7 +115,10 @@ export default function (props) {
               </svg>
               <span className="pl-2">播放全部</span>
             </div>
-            <div className="hover:text-white text-center tracking-widest py-2 px-6 rounded-full border border-solid border-gray-500 hover:bg-gray-800 cursor-pointer flex items-center">
+            <div
+              onClick={() => message.info('开发中！')}
+              className="hover:text-white text-center tracking-widest py-2 px-6 rounded-full border border-solid border-gray-500 hover:bg-gray-800 cursor-pointer flex items-center"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4"
@@ -136,8 +143,18 @@ export default function (props) {
         <div className="pb-2 cursor-pointer hover:text-green-500 text-green-500 border-0 border-solid border-b-2 border-green-500">
           歌曲 {ALBUM.length}
         </div>
-        <div className="pb-2 cursor-pointer hover:text-green-500">专辑信息</div>
-        <div className="pb-2 cursor-pointer hover:text-green-500">评论</div>
+        <div
+          className="pb-2 cursor-pointer hover:text-green-500"
+          onClick={() => message.info('开发中！')}
+        >
+          专辑信息
+        </div>
+        <div
+          className="pb-2 cursor-pointer hover:text-green-500"
+          onClick={() => message.info('开发中！')}
+        >
+          评论
+        </div>
       </div>
 
       <div className="pt-8">
