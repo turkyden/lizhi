@@ -1,5 +1,24 @@
 {
-  "private": true,
+  "name": "lizhi-app",
+  "version": "1.0.0",
+  "description": "🎸 李志(B哥)音乐作品专属，在线播放器，免费下载，我们不能失去信仰！",
+  "title": "Lizhi App",
+  "keywords": [
+    "lizhi",
+    "music",
+    "app",
+    "site",
+    "react"
+  ],
+  "homepage": "https://lizhi.turkyden.com",
+  "bugs": {
+    "url": "https://github.com/turkyden/lizhi-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/turkyden/lizhi-app"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
@@ -36,6 +55,5 @@
     "prettier": "^2.2.0",
     "typescript": "^4.1.2",
     "yorkie": "^2.0.0"
-  },
-  "version": "1.0.0"
+  }
 }
