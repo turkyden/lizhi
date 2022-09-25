@@ -13,9 +13,14 @@ function Star() {
           />
           <div className="space-y-2 bg-gray-50/10 rounded-xl p-4">
             <div className="w-full">
-              感谢支持！赞助仅用于网站维护，并非购买音乐费用。
+              感谢支持！<span className="text-green-500">微信小商店</span>
+              ，赞助费将用于网站维护。
             </div>
-            <div className="w-full">音乐版权归【李志先生】所有！</div>
+            <div className="w-full">音乐版权归【李志先生】所有 ~</div>
+            <div>
+              只需买一张鼠标垫，即可成为{' '}
+              <span className="text-yellow-500">VIP</span>
+            </div>
           </div>
         </div>
       </div>
