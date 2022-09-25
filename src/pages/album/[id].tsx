@@ -159,7 +159,7 @@ export default function (props) {
 
       <div className="pt-8">
         {albumList.map((a, i) => (
-          <div className="flex py-4 hover:bg-white/10 transition group">
+          <div className="flex items-center py-4 hover:bg-white/10 transition group">
             <div
               className="w-3/5 pl-2 text-white group-hover:text-green-500 cursor-pointer"
               onClick={() => onClick(a.name)}
