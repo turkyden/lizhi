@@ -123,7 +123,7 @@ export default function Layout({ children, location }) {
               }`}
               onClick={() => setActive('star')}
             >
-              🧡<span className="pl-4">打赏</span>
+              🧡<span className="pl-4">赞助</span>
             </Link>
           </ul>
         </div>
