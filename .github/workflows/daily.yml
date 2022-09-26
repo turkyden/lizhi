@@ -1,0 +1,24 @@
+name: Daily Update
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install
+        run: yarn
+      - name: Update
+        run: node daily.js
+      - name: Commit and push if changed
+        run: |-
+          git diff
+          git config --global user.email "wj871287@gmail.com"
+          git config --global user.name "Turkyden"
+          git pull
+          git add -A
+          git commit -m "🤖 Auto Update Daily Motto" || exit 0
+          git push
