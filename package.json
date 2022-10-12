@@ -22,6 +22,7 @@
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
+    "tw": "npx tailwindcss -i ./src/input.css -o ./public/tailwind.css --watch",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
@@ -53,6 +54,7 @@
     "@umijs/test": "^3.5.21",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
+    "tailwindcss": "^3.1.8",
     "typescript": "^4.1.2",
     "yorkie": "^2.0.0"
   }
