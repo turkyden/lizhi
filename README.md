@@ -1,27 +1,17 @@
-<h1 align="center">李志 · B 哥</h1>
-
+<h1 align="center">南京 · 李志</h1>
 <p align="center">开箱即用，一个珍藏了李志音乐作品集的在线播放器</p>
-
 <div align="center">
   <a href="https://lizhi.turkyden.com" target="_blank">：：：✨ Live Demo ✨ ：：：</a>
 </div>
-
 <br/>
-
 ![logos](./screenshot.png)
-
 ## 🌏 永久托管
-
 所有资源托管于 Github 仓库, 使用 [jsdelivr](https://www.jsdelivr.com/) CDN 全球加速。
-
 你可以这样下载一首歌：
-
 ```
 https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}.mp3
 ```
-
 歌单索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)，感兴趣的小伙伴可以基于曲库资源 DIY 你自己的播放器 ！
-
 ```js
 [{
   name: "阿兰",
@@ -36,16 +26,12 @@ https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}
   cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/cover.png",
 }]
 ```
-
 ## 📹 Live 现场
-
 - 2009-我爱南京跨年演唱会
 - 2014-IO跨年演唱会
 - 2015-看见北京站直播实录
 - 2018-洗心革面跨年演唱会
-
 ## 💿 作品专辑
-
 | :zap: **LIVE**           | 💿 **专辑**           |
 | :------------------------: | :------------------------: |
 | 108 个关键词             | 8                        |
@@ -60,29 +46,19 @@ https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}
 | 我们也爱南京             |                          |
 | 广场                     |                          |
 | 零碎                     |                          |
-
 ## 参与贡献
-
 Installed the dependencies of project
-
 ```bash
 npm install
 ```
-
 Run the app with npm script
-
 ```bash
 npm run start
 ```
-
 ## 跨平台
-
-车载系统中跨平台使用，例如特斯拉 Model 3
-
-https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-9287-61ac876bc807.mp4
-
+车载系统中使用，例如特斯拉 Model 3
+[Powered by Tesla Model 3](https://github.com/turkyden/lizhi-app/issues/1)
 ## 参考链接
-
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
 
@@ -93,5 +69,4 @@ https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-
 [![Stargazers repo roster for @turkyden/lizhi-app](https://reporoster.com/stars/turkyden/lizhi-app)](https://github.com/turkyden/lizhi-app/stargazers)
 
 ## 版权声明
-
-[MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved
+[MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved.
