@@ -61,13 +61,13 @@ https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}
 
 ## 参与贡献
 
-Installed the dependencies of project
+Installed the dependencies of project.
 
 ```bash
 npm install
 ```
 
-Run the app with npm script
+Run the app with npm script.
 
 ```bash
 npm run start
