@@ -80,6 +80,8 @@ https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-
 
 ## 参考链接
 
+若有一天这个网站挂了，不用的担心，还有很多朋友做了播放器，可以去他们那里听听啦 ~
+
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
 
