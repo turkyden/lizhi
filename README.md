@@ -12,9 +12,7 @@
 
 ## 🌏 永久托管
 
-所有资源托管于 Github 仓库, 使用 [jsdelivr](https://www.jsdelivr.com/) CDN 全球加速。
-
-你可以这样下载一首歌：
+所有资源托管于 Github 仓库, 使用 [jsdelivr](https://www.jsdelivr.com/) CDN 全球加速，你可以这样下载一首歌：
 
 ```
 https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}.mp3
@@ -77,11 +75,13 @@ npm run start
 
 ## 跨平台
 
-车载系统中跨平台使用，例如特斯拉 Model 3
+车载系统中使用，例如特斯拉 Model 3
 
 https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-9287-61ac876bc807.mp4
 
 ## 参考链接
+
+若有一天这个网站挂了，不用的担心，还有很多朋友做了播放器，可以去他们那里听听啦 ~
 
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
@@ -94,4 +94,6 @@ https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-
 
 ## 版权声明
 
-[MIT](https://git.woa.com/ihub/ihub-pix/blob/master/LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved
+版权全部归于李志先生所有，本人仅从互联网搜集资源进行合并整理。从李志公众号发布的声明来看，他也希望会得到传播，所以我个人贸然建立了此 Repository，并已发送邮件告知李志先生。若邮件回复不允许，我会立即删除。
+
+[MIT](./LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserved.

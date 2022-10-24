@@ -89,9 +89,6 @@ function Video() {
             ))}
           </div>
         </div>
-        <style>
-          {`.react-jinke-music-player-main{ display: none !important }`}
-        </style>
       </div>
     </>
   );
