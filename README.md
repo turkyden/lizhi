@@ -76,7 +76,7 @@ npm run start
 
 车载系统中使用，例如特斯拉 Model 3
 
-[Powered by Tesla Model 3](https://github.com/turkyden/lizhi-app/issues/1)
+https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-9287-61ac876bc807.mp4
 
 ## 参考链接
 
