@@ -4,19 +4,19 @@ import { Link } from 'umi';
 const videoList = [
   {
     name: '2009-我爱南京跨年演唱会',
-    url: 'https://gcore.jsdelivr.net/gh/nj-lizhi/kn-2009-wanj@main/video/playlist.m3u8',
+    url: 'https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2009-wanj@main/video/playlist.m3u8',
   },
   {
     name: '2014-IO跨年演唱会',
-    url: 'https://gcore.jsdelivr.net/gh/nj-lizhi/kn-2014-io@main/video/playlist.m3u8',
+    url: 'https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2014-io@main/video/playlist.m3u8',
   },
   {
     name: '2015-看见北京站直播实录',
-    url: 'https://gcore.jsdelivr.net/gh/nj-lizhi/kn-2015-kj@main/video/playlist.m3u8',
+    url: 'https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2015-kj@main/video/playlist.m3u8',
   },
   {
     name: '2018-洗心革面跨年演唱会',
-    url: 'https://gcore.jsdelivr.net/gh/nj-lizhi/kn-2018-xxgm@main/video/playlist.m3u8',
+    url: 'https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2018-xxgm@main/video/playlist.m3u8',
   },
 ];
 
