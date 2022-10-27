@@ -5,7 +5,7 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  favicon: './favico.ico',
+  favicon: '/favico.png',
   hash: true,
   history: {
     type: 'hash',
