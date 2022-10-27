@@ -20,17 +20,15 @@ export default defineConfig({
       content: '全网最好用的李志(逼哥)音乐作品专属播放器',
     },
   ],
-  headScripts: [
-    `
-    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
-      window.alert('请用电脑访问');
-    }
-    `,
-  ],
   analytics: {
     baidu: '023e4ef604935de6708edb9e61f17191',
   },
   scripts: [
+    `
+    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+      window.alert('暂不支持移动端，请用电脑装逼！');
+    }
+    `,
     'https://cdn.jsdelivr.net/gh/nj-lizhi/song@main/audio/list.js',
     `
     const groupBy = (arr, fn) =>
