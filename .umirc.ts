@@ -24,6 +24,11 @@ export default defineConfig({
     baidu: '023e4ef604935de6708edb9e61f17191',
   },
   scripts: [
+    `
+    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+      window.alert('请用电脑访问');
+    }
+    `,
     'https://cdn.jsdelivr.net/gh/nj-lizhi/song@main/audio/list.js',
     `
     const groupBy = (arr, fn) =>
