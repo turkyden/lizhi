@@ -73,6 +73,14 @@ Run the app with npm script.
 npm run start
 ```
 
+## TODO
+
+准备申请域名 [www.李志.com](www.李志.com)
+
+- [x] 电脑网页端
+- [ ] 移动端 H5
+- [ ] 评论区
+
 ## 跨平台
 
 车载系统中使用，例如特斯拉 Model 3
