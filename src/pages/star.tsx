@@ -6,20 +6,22 @@ function Star() {
       <div className="flex items-center space-x-10">
         <img className="w-72" src="/qrcode/wxshop.jpeg" alt="qrcode" />
         <div className="space-y-10">
-          <img
-            className="w-48 shadow-xl rounded-lg"
-            src="/qrcode/wxshop_qrcode.png"
-            alt="qrcode"
-          />
+          <div className="p-10 shadow-xl bg-gradient-to-r from-gray-900 to-black border-4 border-solid border-gray-500 rounded-full inline-block">
+            <img
+              className="w-36 shadow-2xl rounded-full"
+              src="/qrcode/wxshop_qrcode.png"
+              alt="qrcode"
+            />
+          </div>
           <div className="space-y-2 bg-gray-50/10 rounded-xl p-4">
             <div className="w-full">
-              感谢支持！<span className="text-green-500">微信小商店</span>
+              扫码<span className="text-green-500">微信小商店</span>下单
               ，赞助费将用于网站维护。
             </div>
             <div className="w-full">音乐版权归【李志先生】所有 ~</div>
             <div>
-              只需买一张鼠标垫，即可成为{' '}
-              <span className="text-yellow-500">VIP</span>
+              只需买一张鼠标垫，即可一起
+              <span className="text-yellow-500">「装逼」</span>
             </div>
           </div>
         </div>

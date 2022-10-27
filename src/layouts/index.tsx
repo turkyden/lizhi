@@ -185,8 +185,17 @@ export default function Layout({ children, location }) {
               }`}
               onClick={() => setActive('star')}
             >
-              🧡<span className="pl-4">周边</span>
+              🧡<span className="pl-4">好物</span>
             </Link>
+
+            <a
+              href="https://support.qq.com/product/450773"
+              target="_blank"
+              className="block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer"
+              onClick={() => setActive('star')}
+            >
+              👽<span className="pl-4">吐槽</span>
+            </a>
           </div>
         </div>
 
