@@ -144,13 +144,13 @@ export default function (props) {
           歌曲 {ALBUM.length}
         </div>
         <div
-          className="pb-2 cursor-pointer hover:text-green-500"
+          className="pb-2 cursor-not-allowed"
           onClick={() => message.info('开发中！')}
         >
           专辑信息
         </div>
         <div
-          className="pb-2 cursor-pointer hover:text-green-500"
+          className="pb-2 cursor-not-allowed"
           onClick={() => message.info('开发中！')}
         >
           评论
