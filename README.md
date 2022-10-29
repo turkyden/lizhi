@@ -98,7 +98,7 @@ https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-
 
 感谢大家对该项目的支持，感谢 [GoldSubmarine](https://github.com/GoldSubmarine) 发起的的音乐资源库 [nj-lizhi](https://github.com/nj-lizhi)
 
-[![Stargazers repo roster for @turkyden/lizhi-app](https://reporoster.com/stars/turkyden/lizhi-app)](https://github.com/turkyden/lizhi-app/stargazers)
+[![Stargazers repo roster for @turkyden/lizhi](https://reporoster.com/stars/turkyden/lizhi)](https://github.com/turkyden/lizhi/stargazers)
 
 ## 版权声明
 
