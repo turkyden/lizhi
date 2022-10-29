@@ -172,7 +172,7 @@ export default function Layout({ children, location }) {
               ⚡<span className="pl-4">Live</span>
             </Link>
             <a
-              href="https://pan.baidu.com/disk/pdfview?path=%2F%E6%9D%8E%E5%BF%97%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%2F%E6%9D%8E%E6%99%BA%E5%8E%9F%E5%88%9B%E6%AD%8C%E6%9B%B2%E5%90%89%E4%BB%96%E8%B0%B12015%E7%89%88.pdf&fsid=248642827256738&size=29926872"
+              href="https://pan.baidu.com/s/17LHv_8gI_Ee5RJqnzSuYIg?pwd=c8af"
               target="_blank"
               className="block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer"
             >
