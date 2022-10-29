@@ -201,7 +201,7 @@ export default function Layout({ children, location }) {
               className="block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer"
               onClick={() => setActive('star')}
             >
-              👽<span className="pl-4">吐槽</span>
+              👽<span className="pl-4">哔哔</span>
             </a>
           </div>
         </div>
