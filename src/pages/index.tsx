@@ -43,7 +43,7 @@ export default function IndexPage() {
       <div className="text-3xl font-bold">Live 现场</div>
       <div className="text-xl pt-6 pb-4">Hi 逼粉，今日为你推荐</div>
 
-      <div className="flex">
+      <div className="flex flex-wrap">
         <div className="mr-6">
           <Link
             className="block text-white w-[410px] h-48 rounded-xl overflow-hidden"
