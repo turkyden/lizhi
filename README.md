@@ -94,7 +94,7 @@ https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-
 - https://www.lizhi334.com/
 - https://github.com/GoldSubmarine/lizhi
 
-## 赞助者
+## 支持者
 
 感谢大家对该项目的支持，感谢 [GoldSubmarine](https://github.com/GoldSubmarine) 发起的的音乐资源库 [nj-lizhi](https://github.com/nj-lizhi)
 
