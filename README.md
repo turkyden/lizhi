@@ -18,7 +18,7 @@
 https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}.mp3
 ```
 
-歌单索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)，感兴趣的小伙伴可以基于曲库资源 DIY 你自己的播放器 ！
+歌单索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)，会前端开发的小伙伴可以基于曲库资源 DIY 你自己的播放器 ！
 
 ```js
 [{
