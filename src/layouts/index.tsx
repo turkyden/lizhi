@@ -195,14 +195,12 @@ export default function Layout({ children, location }) {
               🧡<span className="pl-4">好物</span>
             </Link>
 
-            <a
-              href="https://support.qq.com/product/450773"
-              target="_blank"
+            <div
               className="block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer"
-              onClick={() => setActive('star')}
+              onClick={() => alert('不允许你 BB ！')}
             >
               👽<span className="pl-4">哔哔</span>
-            </a>
+            </div>
           </div>
         </div>
 
