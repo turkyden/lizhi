@@ -31,19 +31,18 @@ function Video() {
     document.querySelector('.music-player-audio')?.pause();
     dp.current = new window.DPlayer({
       container: ref.current,
-      autoplay: true,
       video: {
         url: videoList[index].url,
         type: 'hls',
-        autoplay: true,
       },
     });
+    dp.current.play();
     //dp.current.template.menu.remove();
   }, []);
 
   const handleSelect = (index) => {
     setIndex(index);
-    dp.current.switchVideo({ url: videoList[index].url });
+    dp.current.switchVideo({ url: videoList[index].url, type: 'hls' });
     dp.current.play();
   };
 
