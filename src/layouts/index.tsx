@@ -197,7 +197,7 @@ export default function Layout({ children, location }) {
 
             <div
               className="block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer"
-              onClick={() => alert('不允许你 BB ！')}
+              onClick={() => alert('这里，已不允许你 BB ！')}
             >
               👽<span className="pl-4">哔哔</span>
             </div>

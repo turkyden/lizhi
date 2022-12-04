@@ -15,23 +15,23 @@
 所有资源托管于 Github 仓库, 使用 [jsdelivr](https://www.jsdelivr.com/) CDN 全球加速，你可以这样下载一首歌：
 
 ```
-https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}.mp3
+https://gcore.jsdelivr.net/gh/nj-lizhi/song@master/audio/${专辑名称}/${歌名}.mp3
 ```
 
-歌单索引 [list.js](https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)，会前端开发的小伙伴可以基于曲库资源 DIY 你自己的播放器 ！
+歌单索引 [list.js](https://gcore.jsdelivr.net/gh/nj-lizhi/song@master/audio/list.js)，会前端开发的小伙伴可以基于曲库资源 DIY 你自己的播放器 ！
 
 ```js
 [{
   name: "阿兰",
   artist: "专辑-108个关键词",
-  url: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/阿兰.mp3",
-  cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/cover.png",
+  url: "https://gcore.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/阿兰.mp3",
+  cover: "https://gcore.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/cover.png",
 },
 {
   name: "忽然",
   artist: "专辑-108个关键词",
-  url: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/忽然.mp3",
-  cover: "https://cdn.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/cover.png",
+  url: "https://gcore.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/忽然.mp3",
+  cover: "https://gcore.jsdelivr.net/gh/nj-lizhi/song@master/audio/108个关键词/cover.png",
 }]
 ```
 

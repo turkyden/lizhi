@@ -4,19 +4,19 @@ import { Link } from 'umi';
 const videoList = [
   {
     name: '2009-我爱南京跨年演唱会',
-    url: 'https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2009-wanj@main/video/playlist.m3u8',
+    url: 'https://gcore.jsdelivr.net/gh/nj-lizhi/kn-2009-wanj@main/video/roadmap.js',
   },
   {
     name: '2014-IO跨年演唱会',
-    url: 'https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2014-io@main/video/playlist.m3u8',
+    url: 'https://gcore.jsdelivr.net/gh/nj-lizhi/kn-2014-io@main/video/roadmap.js',
   },
   {
     name: '2015-看见北京站直播实录',
-    url: 'https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2015-kj@main/video/playlist.m3u8',
+    url: 'https://gcore.jsdelivr.net/gh/nj-lizhi/kn-2015-kj@main/video/roadmap.js',
   },
   {
     name: '2018-洗心革面跨年演唱会',
-    url: 'https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2018-xxgm@main/video/playlist.m3u8',
+    url: 'https://gcore.jsdelivr.net/gh/nj-lizhi/kn-2018-xxgm@main/video/roadmap.js',
   },
 ];
 
@@ -75,16 +75,16 @@ function Video() {
           <div className="w-[800px] border-solid border-white/5 border shadow-xl">
             <div ref={ref}></div>
           </div>
-          <div className="pt-10 flex flex-wrap">
+          <div className="pt-10 grid grid-cols-2 gap-2">
             {videoList.map((v, k) => (
               <div
                 key={k}
-                className={`w-1/2 py-2 px-4 rounded-full cursor-pointer hover:text-green-500 hover:underline ${
+                className={`col-span-1 py-2 bg-white/10 px-4 cursor-pointer hover:bg-white/20 transition ${
                   index === k && 'text-green-500'
                 }`}
                 onClick={() => handleSelect(k)}
               >
-                # {v.name}
+                VOL . {v.name}
               </div>
             ))}
           </div>
