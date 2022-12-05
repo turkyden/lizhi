@@ -63,13 +63,13 @@ export default function Layout({ children, location }) {
           {
             id: 'live',
             children: '现场',
-            icon: 'SupportIcon',
+            icon: 'SunIcon',
             href: '/#/video',
           },
           {
             id: 'albums',
             children: '专辑',
-            icon: 'CollectionIcon',
+            icon: 'MapIcon',
             closeOnSelect: false,
             onClick: () => {
               setPage('albums');
@@ -84,7 +84,7 @@ export default function Layout({ children, location }) {
           {
             id: 'developer',
             children: '参与贡献',
-            icon: 'CodeIcon',
+            icon: 'CodeBracketIcon',
             target: '_blank',
             href: 'https://github.com/turkyden/lizhi-app',
           },
