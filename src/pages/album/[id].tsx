@@ -1,5 +1,6 @@
 import { Link } from 'umi';
 import { message } from 'antd';
+import { useState } from 'react';
 
 const ALBUM = [
   {
@@ -44,6 +45,7 @@ interface ISong {
 interface ISongList extends Array<ISong> {}
 
 export default function (props) {
+  const [currDownloadingName, setcurrDownloadingName] = useState('');
   const artist = props.match.params.id;
 
   const albumList = window.list.filter((v) => v.artist === artist);
@@ -59,6 +61,28 @@ export default function (props) {
     }
   };
 
+  const handleDownload = async ({ name, url }: ISong) => {
+    setcurrDownloadingName(name);
+    try {
+      let res = await fetch(url);
+      let blob = await res.blob();
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.style.display = 'none';
+      // 使用获取到的blob对象创建的url
+      const targetUrl = window.URL.createObjectURL(blob);
+      a.href = targetUrl;
+      // 指定下载的文件名
+      a.download = name;
+      a.click();
+      document.body.removeChild(a);
+      // 移除blob对象的url
+      window.URL.revokeObjectURL(url);
+    } catch (e) {
+      alert(`下载音乐: "${name}" 失败`);
+    }
+    setcurrDownloadingName('');
+  };
   return (
     <>
       <Link
@@ -188,29 +212,49 @@ export default function (props) {
                   />
                 </svg>
               </span>
-              <a
-                className={`cursor-pointer text-gray-500 hover:text-green-500 transition ${
-                  window.location.href.includes('from=pake') && 'hidden'
-                }`}
-                href={a.url}
-                download
+              <span
+                className="cursor-pointer text-gray-500 hover:text-green-500 transition"
+                onClick={() => handleDownload(a)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="cursor-pointer text-gray-500 hover:text-blue-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                  />
-                </svg>
-              </a>
+                {currDownloadingName && currDownloadingName === a.name ? (
+                  <svg
+                    width="24"
+                    height="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      id="svg_1"
+                      d="m10.94421,2.45149c-4.59532,0 -8.32084,3.72552 -8.32084,8.32084l1.81176,0c0,-3.59458 2.91405,-6.50907 6.50907,-6.50907l0,-1.81176z"
+                      fill="#FF6700"
+                    >
+                      <animateTransform
+                        attributeType="xml"
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 10 10"
+                        to="360 10 10"
+                        dur="0.6s"
+                        repeatCount="indefinite"
+                      ></animateTransform>
+                    </path>
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="cursor-pointer text-gray-500 hover:text-blue-500 w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                    />
+                  </svg>
+                )}
+              </span>
             </div>
           </div>
         ))}
