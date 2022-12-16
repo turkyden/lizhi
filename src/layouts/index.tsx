@@ -153,7 +153,7 @@ export default function Layout({ children, location }) {
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
             >
-              🔢<span className="pl-4">全部</span>
+              🔢<span className="pl-4">主页</span>
             </Link>
             <Link
               to="/album/专辑-梵高先生"
