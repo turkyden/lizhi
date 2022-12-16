@@ -27,7 +27,9 @@ const options = {
   autoPlay: false,
   toggleMode: false,
   mode: 'full',
-  showLyric: true,
+  showLyric: false,
+  showThemeSwitch: false,
+  showReload: false,
 };
 
 export default function Layout({ children, location }) {
@@ -171,16 +173,19 @@ export default function Layout({ children, location }) {
             >
               ⚡<span className="pl-4">Live</span>
             </Link>
-            <a
-              href="https://pan.baidu.com/s/17LHv_8gI_Ee5RJqnzSuYIg?pwd=c8af"
-              target="_blank"
-              className="block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer"
+            <Link
+              to="/star"
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+                location.pathname.startsWith('/star') &&
+                'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
+              }`}
+              onClick={() => setActive('star')}
             >
-              🎸<span className="pl-4">琴谱</span>
-            </a>
+              🧡<span className="pl-4">好物</span>
+            </Link>
           </div>
 
-          <br />
+          {/* <br />
 
           <h3 className="text-gray-500 text-sm mt-8 mb-4">友情赞助</h3>
           <div className="space-y-2">
@@ -194,14 +199,7 @@ export default function Layout({ children, location }) {
             >
               🧡<span className="pl-4">好物</span>
             </Link>
-
-            <div
-              className="block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer"
-              onClick={() => alert('这里，已不允许你 BB ！')}
-            >
-              👽<span className="pl-4">哔哔</span>
-            </div>
-          </div>
+          </div> */}
         </div>
 
         <img
@@ -210,7 +208,7 @@ export default function Layout({ children, location }) {
           alt=""
         />
       </div>
-      <div className="w-[100% - 256px] h-screen overflow-y-auto p-10">
+      <div className="w-[100% - 256px] h-screen overflow-y-auto px-8 py-10">
         {children}
       </div>
       <ReactJkMusicPlayer {...options} />

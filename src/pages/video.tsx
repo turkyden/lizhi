@@ -70,7 +70,7 @@ function Video() {
       </Link>
       <div className="w-full h-full flex flex-col justify-center items-center">
         <div>
-          <div className="text-3xl font-bold pb-4">Live 现场</div>
+          {/* <div className="text-3xl font-bold pb-4">Live 现场</div> */}
           <div className="w-[800px] border-solid border-white/5 border shadow-xl">
             <div ref={ref}></div>
           </div>
