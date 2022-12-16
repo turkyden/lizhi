@@ -179,7 +179,7 @@ export default function Layout({ children, location }) {
               ${
                 location.pathname.startsWith('/star') &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
-              } ${location.search.includes('from=pake') && 'hidden'}`}
+              } ${location.href.includes('from=pake') && 'hidden'}`}
               onClick={() => setActive('star')}
             >
               ⭐<span className="pl-4">赞助</span>
