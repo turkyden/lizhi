@@ -144,8 +144,8 @@ export default function Layout({ children, location }) {
             </div>
           </div>
 
-          <h3 className="text-gray-500 text-sm mt-8 mb-4">所有作品</h3>
-          <div className="space-y-2">
+          <h3 className="text-gray-500 text-sm py-1"></h3>
+          <div className="space-y-4">
             <Link
               to="/"
               className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
