@@ -171,17 +171,18 @@ export default function Layout({ children, location }) {
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
               }`}
             >
-              ⚡<span className="pl-4">Live</span>
+              🔥<span className="pl-4">Live</span>
             </Link>
             <Link
               to="/star"
-              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer 
+              ${
                 location.pathname.startsWith('/star') &&
                 'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
-              }`}
+              } ${location.search.includes('from=pake') && 'hidden'}`}
               onClick={() => setActive('star')}
             >
-              🧡<span className="pl-4">好物</span>
+              🎁<span className="pl-4">好物</span>
             </Link>
           </div>
 
