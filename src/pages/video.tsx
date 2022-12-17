@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'umi';
+import Hls from 'hls.js';
 
 const videoList = [
   {
@@ -21,29 +22,29 @@ const videoList = [
 ];
 
 function Video() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLMediaElement>();
 
-  const dp = useRef(null);
+  const hls = useRef(null);
 
-  const [index, setIndex] = useState(3);
+  const [index, setIndex] = useState(2);
 
   useEffect(() => {
     document.querySelector('.music-player-audio')?.pause();
-    dp.current = new window.DPlayer({
-      container: ref.current,
-      video: {
-        url: videoList[index].url,
-        type: 'hls',
-      },
-    });
-    dp.current.play();
-    //dp.current.template.menu.remove();
+    const video = ref.current;
+    const videoSrc = videoList[index].url;
+    if (Hls.isSupported()) {
+      hls.current = new Hls();
+      hls.current.loadSource(videoSrc);
+      hls.current.attachMedia(video);
+    } else if (video?.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+    }
   }, []);
 
   const handleSelect = (index) => {
     setIndex(index);
-    dp.current.switchVideo({ url: videoList[index].url, type: 'hls' });
-    dp.current.play();
+    hls.current.loadSource(videoList[index].url);
+    hls.current.attachMedia(ref.current);
   };
 
   return (
@@ -72,7 +73,12 @@ function Video() {
         <div>
           {/* <div className="text-3xl font-bold pb-4">Live 现场</div> */}
           <div className="w-[800px] border-solid border-white/5 border shadow-xl">
-            <div ref={ref}></div>
+            <video
+              className="w-full"
+              controls
+              autoplay="autoplay"
+              ref={ref}
+            ></video>
           </div>
           <div className="pt-10 grid grid-cols-2 gap-2">
             {videoList.map((v, k) => (

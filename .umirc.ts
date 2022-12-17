@@ -45,8 +45,6 @@ export default defineConfig({
       cover: obj[a][1]['cover']
     }));
     `,
-    'https://gcore.jsdelivr.net/npm/hls.js@0.14.4/dist/hls.min.js',
-    'https://gcore.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js',
   ],
   fastRefresh: {},
 });

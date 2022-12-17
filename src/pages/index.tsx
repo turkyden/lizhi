@@ -41,7 +41,7 @@ export default function IndexPage() {
   return (
     <>
       <div className="text-3xl font-bold">专辑</div>
-      <div className="text-xl pt-6 pb-4">Hi 朋友，今日为你推荐</div>
+      <div className="text-xl py-4">Hi 朋友，今日为你推荐</div>
 
       <div className="flex flex-wrap">
         <div className="mr-6">
@@ -75,7 +75,7 @@ export default function IndexPage() {
 
       <br />
 
-      <div className="text-3xl font-bold pb-6">Live 现场</div>
+      <div className="text-3xl font-bold py-6">Live 现场</div>
 
       <div className="flex flex-wrap">
         {LIVE.map((v, i) => (
