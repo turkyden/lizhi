@@ -91,12 +91,12 @@ export default function Layout({ children, location }) {
             target: '_blank',
             href: 'https://github.com/turkyden/lizhi-app',
           },
-          {
-            id: 'star',
-            children: '赞助我们',
-            icon: 'StarIcon',
-            href: '/#/star',
-          },
+          // {
+          //   id: 'star',
+          //   children: '赞助我们',
+          //   icon: 'StarIcon',
+          //   href: '/#/star',
+          // },
         ],
       },
     ],
