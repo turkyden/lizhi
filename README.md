@@ -87,7 +87,7 @@ npm run start
 
 | 车机系统 | 客户端 App |
 | ----- | ------ |
-| <video src="https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-9287-61ac876bc807.mp4"><video> | - |
+| <video src="https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-9287-61ac876bc807.mp4"><video> | [lizhi](https://cdn.fliggy.com/upic/8pPLed.png) |
 
 ## 参考链接
 
