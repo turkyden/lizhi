@@ -85,9 +85,21 @@ npm run start
 
 车载系统中使用，例如特斯拉 Model 3
 
-| 车机系统 | 客户端 App |
-| ----- | ------ |
-| <video src="https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-9287-61ac876bc807.mp4"><video> | [lizhi](https://cdn.fliggy.com/upic/8pPLed.png) |
+<table>
+  <tr>
+        <td>LiZhi APP 客户端 ⬇️ 
+            <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi.dmg">Mac</a>
+            <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi_x64.msi">Windows</a>
+            <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi_amd64.deb">Linux</a>
+        </td>
+         <td>车机系统
+        </td>
+    </tr>
+    <tr>
+        <td><img src=https://cdn.fliggy.com/upic/8pPLed.png width=600/></td>
+        <td><video src="https://user-images.githubusercontent.com/24560160/187013816-6630dff6-7ab2-447d-9287-61ac876bc807.mp4"><video></td>
+    </tr>
+</table>
 
 ## 参考链接
 
