@@ -182,7 +182,7 @@ export default function Layout({ children, location }) {
               } ${window.location.href.includes('from=pake') && 'hidden'}`}
               onClick={() => setActive('star')}
             >
-              ⭐<span className="pl-4">赞助</span>
+              🌟<span className="pl-4">赞助</span>
             </Link>
           </div>
 
