@@ -87,7 +87,7 @@ npm run start
 
 <table>
   <tr>
-        <td>LiZhi APP 客户端 ⬇️ 
+        <td>客户端下载 ⬇️ 
             <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi.dmg">Mac</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi_x64.msi">Windows</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi_amd64.deb">Linux</a>
