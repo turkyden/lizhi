@@ -111,6 +111,8 @@ npm run start
 ## 支持者
 
 感谢大家对该项目的支持，感谢 [GoldSubmarine](https://github.com/GoldSubmarine) 发起的的音乐资源库 [nj-lizhi](https://github.com/nj-lizhi)
+  
+以及 [tw93](https://github.com/tw93) 同学提供的跨平台应用打包工具 [Pake](https://github.com/tw93/Pake) 👍
 
 [![Stargazers repo roster for @turkyden/lizhi](https://reporoster.com/stars/turkyden/lizhi)](https://github.com/turkyden/lizhi/stargazers)
 
