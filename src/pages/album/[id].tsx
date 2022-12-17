@@ -117,7 +117,7 @@ export default function (props) {
             </div>
             <div
               onClick={() => message.info('开发中！')}
-              className="hover:text-white text-center tracking-widest py-2 px-6 rounded-full border border-solid border-gray-500 hover:bg-gray-800 cursor-pointer flex items-center"
+              className="hidden hover:text-white text-center tracking-widest py-2 px-6 rounded-full border border-solid border-gray-500 hover:bg-gray-800 cursor-pointer flex items-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -144,13 +144,13 @@ export default function (props) {
           歌曲 {ALBUM.length}
         </div>
         <div
-          className="pb-2 cursor-not-allowed"
+          className="hidden pb-2 cursor-not-allowed"
           onClick={() => message.info('开发中！')}
         >
           专辑信息
         </div>
         <div
-          className="pb-2 cursor-not-allowed"
+          className="hidden pb-2 cursor-not-allowed"
           onClick={() => message.info('开发中！')}
         >
           评论
@@ -189,7 +189,9 @@ export default function (props) {
                 </svg>
               </span>
               <a
-                className="cursor-pointer text-gray-500 hover:text-green-500 transition"
+                className={`cursor-pointer text-gray-500 hover:text-green-500 transition ${
+                  window.location.href.includes('from=pake') && 'hidden'
+                }`}
                 href={a.url}
                 download
               >

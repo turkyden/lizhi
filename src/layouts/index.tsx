@@ -30,6 +30,7 @@ const options = {
   showLyric: false,
   showThemeSwitch: false,
   showReload: false,
+  showDownload: !window.location.href.includes('from=pake'),
 };
 
 export default function Layout({ children, location }) {
