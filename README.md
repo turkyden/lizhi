@@ -83,7 +83,7 @@ npm run start
 
 ## 跨平台
 
-车载系统中使用，例如特斯拉 Model 3
+基于 [Pake](https://github.com/tw93/Pake) 打包的跨平台客户端应用 App，也支持车载系统中使用。
 
 <table>
   <tr>
@@ -92,7 +92,7 @@ npm run start
             <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi_x64.msi">Windows</a>
             <a href="https://github.com/tw93/Pake/releases/latest/download/LiZhi_amd64.deb">Linux</a>
         </td>
-         <td>车机系统
+         <td>特斯拉 Model 3
         </td>
     </tr>
     <tr>
