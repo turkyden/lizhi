@@ -149,37 +149,37 @@ export default function Layout({ children, location }) {
           <div className="space-y-4">
             <Link
               to="/"
-              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer ${
                 location.pathname === '/' &&
-                'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
+                'bg-green-500 shadow shadow-green-500/50'
               }`}
             >
               🔢<span className="pl-4">主页</span>
             </Link>
             <Link
               to="/album/专辑-梵高先生"
-              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer ${
                 location.pathname.startsWith('/album') &&
-                'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
+                'bg-green-500 shadow shadow-green-500/50'
               }`}
             >
               💿<span className="pl-4">专辑</span>
             </Link>
             <Link
               to="/video"
-              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer ${
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer ${
                 location.pathname.startsWith('/video') &&
-                'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
+                'bg-green-500 shadow shadow-green-500/50'
               }`}
             >
               🔥<span className="pl-4">Live</span>
             </Link>
             <Link
               to="/star"
-              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-500 cursor-pointer 
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer 
               ${
                 location.pathname.startsWith('/star') &&
-                'bg-gradient-to-t from-green-700 to-green-500 shadow shadow-green-500/50'
+                'bg-green-500 shadow shadow-green-500/50'
               } ${window.location.href.includes('from=pake') && 'hidden'}`}
               onClick={() => setActive('star')}
             >

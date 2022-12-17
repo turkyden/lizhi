@@ -99,7 +99,7 @@ export default function (props) {
           <div className="flex space-x-4 pt-10">
             <div
               onClick={() => onClick(albumList[0].name)}
-              className="transition hover:text-white text-center tracking-widest py-2 px-6 rounded-full bg-gradient-to-r from-green-500 to-green-400 text-white cursor-pointer hover:opacity-90 transition shadow-lg shadow-green-500/50 flex items-center"
+              className="transition hover:text-white text-center py-2 px-6 rounded-full bg-green-500 text-white cursor-pointer hover:opacity-90 shadow-lg shadow-green-500/50 flex items-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
