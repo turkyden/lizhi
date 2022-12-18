@@ -29,7 +29,7 @@ export default defineConfig({
       window.alert('暂不支持移动端，请用电脑装逼！');
     }
     `,
-    'https://gcore.jsdelivr.net/gh/nj-lizhi/song@main/audio/list-v1.js',
+    'https://testingcf.jsdelivr.net/gh/nj-lizhi/song@main/audio/list-v2.js',
     `
     const groupBy = (arr, fn) =>
       arr
