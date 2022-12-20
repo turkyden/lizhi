@@ -141,7 +141,7 @@ export default function (props) {
 
       <div className="flex items-center space-x-10 pt-10">
         <div className="pb-2 cursor-pointer hover:text-green-500 text-green-500 border-0 border-solid border-b-2 border-green-500">
-          歌曲 {ALBUM.length}
+          歌曲 {albumList.length}
         </div>
         <div
           className="hidden pb-2 cursor-not-allowed"
