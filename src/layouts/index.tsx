@@ -154,15 +154,6 @@ export default function Layout({ children, location }) {
                 'bg-green-500 shadow shadow-green-500/50'
               }`}
             >
-              🔢<span className="pl-4">主页</span>
-            </Link>
-            <Link
-              to="/album/专辑-梵高先生"
-              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer ${
-                location.pathname.startsWith('/album') &&
-                'bg-green-500 shadow shadow-green-500/50'
-              }`}
-            >
               💿<span className="pl-4">专辑</span>
             </Link>
             <Link
@@ -173,6 +164,15 @@ export default function Layout({ children, location }) {
               }`}
             >
               🔥<span className="pl-4">Live</span>
+            </Link>
+            <Link
+              to="/about"
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer ${
+                location.pathname.startsWith('/about') &&
+                'bg-green-500 shadow shadow-green-500/50'
+              }`}
+            >
+              🧑<span className="pl-4">自传</span>
             </Link>
             <Link
               to="/download"
