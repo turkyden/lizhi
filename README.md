@@ -8,7 +8,7 @@
 
 <br/>
 
-![logos](./screenshot.png)
+![logos](https://jsdelivr.net/gh/turkyden/lizhi/screenshot.png)
 
 ## 🌏 永久托管
 
