@@ -102,9 +102,9 @@ npm run start
     </tr>
 </table>
 
-想买 Tesla 的同学欢迎使用我的引荐链接购买 Tesla 产品可获得积分，用于兑换超级充电里程额度、服饰精品和车辆配件等奖品。购车问题也可以找我沟通交流[狗头]
+想买 Tesla 的同学欢迎使用我的引荐链接购买 Tesla 产品可获得积分，用于兑换超级充电里程额度、服饰精品和车辆配件等奖品。购车问题也可以找我沟通交流！
 
-优惠链接https://www.tesla.cn/referral/mhha15035
+活动链接 👉👉👉 https://www.tesla.cn/referral/mhha15035
 
 ## 参考链接
 
