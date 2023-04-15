@@ -23,7 +23,7 @@ const options = {
   audioLists,
   theme: 'dark',
   locale: 'zh_CN',
-  showMediaSession: true,
+  showMediaSession: false,
   autoPlay: false,
   toggleMode: false,
   mode: 'full',
