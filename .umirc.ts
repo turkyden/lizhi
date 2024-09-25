@@ -2,10 +2,7 @@ import { defineConfig } from 'umi';
 
 export default defineConfig({
   title: '李志 BB 音乐作品播放器',
-  nodeModulesTransform: {
-    type: 'none',
-  },
-  favicon: '/favico.png',
+  favicons: ['/favico.png'],
   hash: true,
   history: {
     type: 'hash',
@@ -46,5 +43,5 @@ export default defineConfig({
     }));
     `,
   ],
-  fastRefresh: {},
+  fastRefresh: true,
 });
