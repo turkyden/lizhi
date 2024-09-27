@@ -1,7 +1,7 @@
 import type { SongList } from '@/types';
 import { message } from 'antd';
 import { useState } from 'react';
-import { Link } from 'umi';
+import { Link, useParams } from 'umi';
 
 const ALBUM = [
   {
@@ -43,9 +43,10 @@ interface ISong {
   url: string;
 }
 
-export default function (props) {
+export default function () {
   const [currDownloadingName, setcurrDownloadingName] = useState('');
-  const artist = props.match.params.id;
+  const params = useParams();
+  const artist = params.id as string;
 
   const albumList = (window as unknown as { list: SongList }).list?.filter(
     (v) => v.artist === artist,
@@ -142,7 +143,7 @@ export default function (props) {
             </div>
             <div
               onClick={() => message.info('开发中！')}
-              className="hidden hover:text-white text-center tracking-widest py-2 px-6 rounded-full border border-solid border-gray-500 hover:bg-gray-800 cursor-pointer flex items-center"
+              className="hidden hover:text-white text-center tracking-widest py-2 px-6 rounded-full border border-solid border-gray-500 hover:bg-gray-800 cursor-pointer items-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

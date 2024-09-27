@@ -7,6 +7,10 @@ export default defineConfig({
   history: {
     type: 'hash',
   },
+  routes: [
+    { path: '/', component: 'index' },
+    { path: '/album/:id', component: 'album/index' },
+  ],
   metas: [
     {
       name: 'keywords',
