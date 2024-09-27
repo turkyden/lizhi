@@ -1,6 +1,7 @@
-import { Link } from 'umi';
+import type { SongList } from '@/types';
 import { message } from 'antd';
 import { useState } from 'react';
+import { Link } from 'umi';
 
 const ALBUM = [
   {
@@ -42,19 +43,19 @@ interface ISong {
   url: string;
 }
 
-interface ISongList extends Array<ISong> {}
-
 export default function (props) {
   const [currDownloadingName, setcurrDownloadingName] = useState('');
   const artist = props.match.params.id;
 
-  const albumList = window.list.filter((v) => v.artist === artist);
+  const albumList = (window as unknown as { list: SongList }).list?.filter(
+    (v) => v.artist === artist,
+  );
 
   const onClick = (name: string) => {
     const array = document.querySelectorAll('.audio-item');
     for (let index = 0; index < array.length; index++) {
       const element = array[index];
-      const target = element.querySelector('.player-name');
+      const target = element.querySelector('.player-name') as HTMLElement;
       if (target?.title.includes(name)) {
         target.click();
       }

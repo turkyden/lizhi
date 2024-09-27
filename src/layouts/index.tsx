@@ -1,16 +1,19 @@
+import type { SongList } from '@/types';
 import { useEffect, useState } from 'react';
-import ReactJkMusicPlayer from 'react-jinke-music-player';
+import 'react-cmdk/dist/cmdk.css';
 import CommandPalette, {
   filterItems,
   getItemIndex,
   useHandleOpenCommandPalette,
-} from 'react-cmdk';
-import { Link } from 'umi';
+} from 'react-cmdk/src/index';
+import ReactJkMusicPlayer, {
+  type ReactJkMusicPlayerProps,
+} from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
+import { Link, useLocation, useOutlet } from 'umi';
 import './index.css';
-import 'react-cmdk/dist/cmdk.css';
 
-const audioLists = window.list?.map((v) => {
+const audioLists = (window as unknown as { list: SongList }).list?.map((v) => {
   return {
     name: `${v.name} · ${v.artist}`.replace('专辑-', ''),
     musicSrc: v.url,
@@ -19,7 +22,7 @@ const audioLists = window.list?.map((v) => {
   };
 });
 
-const options = {
+const options: ReactJkMusicPlayerProps = {
   audioLists,
   theme: 'dark',
   locale: 'zh_CN',
@@ -33,19 +36,23 @@ const options = {
   showDownload: !window.location.href.includes('from=pake'),
 };
 
-export default function Layout({ children, location }) {
+export default function Layout() {
   const [active, setActive] = useState('all');
 
   const [page, setPage] = useState<'root' | 'albums'>('root');
   const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState('');
+  const location = useLocation();
+  const outlet = useOutlet();
 
   useHandleOpenCommandPalette(setOpen);
 
   useEffect(() => {
+    // @ts-ignore
     document
       .querySelector('.music-player-panel')
       .classList.add('backdrop-blur-md');
+    // @ts-ignore
     document
       .querySelector('.audio-lists-panel')
       .classList.add('backdrop-blur-md');
@@ -176,7 +183,7 @@ export default function Layout({ children, location }) {
             </Link>
             <Link
               to="/download"
-              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer 
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer
               ${
                 location.pathname.startsWith('/download') &&
                 'bg-green-500 shadow shadow-green-500/50'
@@ -187,7 +194,7 @@ export default function Layout({ children, location }) {
             </Link>
             <Link
               to="/star"
-              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer 
+              className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-green-500 cursor-pointer
               ${
                 location.pathname.startsWith('/star') &&
                 'bg-green-500 shadow shadow-green-500/50'
@@ -222,7 +229,7 @@ export default function Layout({ children, location }) {
         />
       </div>
       <div className="w-[100% - 256px] h-screen overflow-y-auto px-8 py-10">
-        {children}
+        {outlet}
       </div>
       <ReactJkMusicPlayer {...options} />
       <a
