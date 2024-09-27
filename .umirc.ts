@@ -9,6 +9,10 @@ export default defineConfig({
   },
   routes: [
     { path: '/', component: 'index' },
+    { path: '/about', component: 'about' },
+    { path: '/download', component: 'download' },
+    { path: '/star', component: 'star' },
+    { path: '/video', component: 'video' },
     { path: '/album/:id', component: 'album/index' },
   ],
   metas: [
