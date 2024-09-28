@@ -1,8 +1,14 @@
+import Back from '@/components/back';
 import PlayerContext from '@/contexts/playerContext';
 import type { SongInfo, SongList } from '@/types';
-import { message } from 'antd';
 import { useContext, useState } from 'react';
-import { Link, useParams } from 'umi';
+import { ReactSVG } from 'react-svg';
+import { useParams } from 'umi';
+
+import DownloadIcon from '@/assets/download.svg';
+import LoadingIcon from '@/assets/loading.svg';
+import LargePlayIcon from '@/assets/play-large.svg';
+import PlayIcon from '@/assets/play.svg';
 
 interface ISong {
   artist: string;
@@ -58,26 +64,8 @@ export default function () {
   };
   return (
     <>
-      <Link
-        className="flex items-center mb-8 group text-white hover:text-white cursor-pointer"
-        to="/"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 transition transform group-hover:-translate-x-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M10 19l-7-7m0 0l7-7m-7 7h18"
-          />
-        </svg>
-        <span className="pl-2">Back</span>
-      </Link>
+      <Back to="/" />
+
       <div className="flex">
         <img
           className="w-48 h-48 rounded-xl"
@@ -98,21 +86,10 @@ export default function () {
               onClick={() => onClick(albumList[0])}
               className="transition hover:text-white text-center py-2 px-6 rounded-full bg-green-500 text-white cursor-pointer hover:opacity-90 shadow-lg shadow-green-500/50 flex items-center"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <ReactSVG src={PlayIcon} className="h-4 w-4" />
               <span className="pl-2">播放全部</span>
             </div>
-            <div
+            {/* <div
               onClick={() => message.info('开发中！')}
               className="hidden hover:text-white text-center tracking-widest py-2 px-6 rounded-full border border-solid border-gray-500 hover:bg-gray-800 cursor-pointer items-center"
             >
@@ -131,7 +108,7 @@ export default function () {
                 />
               </svg>
               <span className="pl-2">收藏</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -140,7 +117,7 @@ export default function () {
         <div className="pb-2 cursor-pointer hover:text-green-500 text-green-500 border-0 border-solid border-b-2 border-green-500">
           歌曲 {albumList.length}
         </div>
-        <div
+        {/* <div
           className="hidden pb-2 cursor-not-allowed"
           onClick={() => message.info('开发中！')}
         >
@@ -151,7 +128,7 @@ export default function () {
           onClick={() => message.info('开发中！')}
         >
           评论
-        </div>
+        </div> */}
       </div>
 
       <div className="pt-8">
@@ -164,7 +141,9 @@ export default function () {
               className="w-3/5 pl-2 text-white group-hover:text-green-500 cursor-pointer"
               onClick={() => onClick(a)}
             >
-              <span className="pr-4">{i + 1 > 9 ? i + 1 : '0' + (i + 1)}</span>
+              <span className="pr-4 text-gray-400">
+                {i + 1 > 9 ? i + 1 : '0' + (i + 1)}
+              </span>
               <span className="">{a.name}</span>
             </div>
             <div className="w-1/5 text-gray-500">李志</div>
@@ -173,62 +152,19 @@ export default function () {
                 className="cursor-pointer text-gray-500 hover:text-green-500 transition"
                 onClick={() => onClick(a)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
-                  />
-                </svg>
+                <ReactSVG src={LargePlayIcon} className="w-6 h-6" />
               </span>
               <span
                 className="cursor-pointer text-gray-500 hover:text-green-500 transition"
                 onClick={() => handleDownload(a)}
               >
                 {currDownloadingName && currDownloadingName === a.name ? (
-                  <svg
-                    width="24"
-                    height="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      id="svg_1"
-                      d="m10.94421,2.45149c-4.59532,0 -8.32084,3.72552 -8.32084,8.32084l1.81176,0c0,-3.59458 2.91405,-6.50907 6.50907,-6.50907l0,-1.81176z"
-                      fill="#FF6700"
-                    >
-                      <animateTransform
-                        attributeType="xml"
-                        attributeName="transform"
-                        type="rotate"
-                        from="0 10 10"
-                        to="360 10 10"
-                        dur="0.6s"
-                        repeatCount="indefinite"
-                      ></animateTransform>
-                    </path>
-                  </svg>
+                  <ReactSVG src={LoadingIcon} />
                 ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                  <ReactSVG
+                    src={DownloadIcon}
                     className="cursor-pointer text-gray-500 hover:text-blue-500 w-6 h-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                    />
-                  </svg>
+                  />
                 )}
               </span>
             </div>
