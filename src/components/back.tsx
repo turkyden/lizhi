@@ -17,7 +17,7 @@ function Back(props: BackButtonProps) {
         src={BackIcon}
         className="h-4 w-4 transition transform group-hover:-translate-x-2"
       />
-      <span className="pl-2">Back</span>
+      <span className="pl-2">返回</span>
     </Link>
   );
 }

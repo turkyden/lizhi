@@ -128,7 +128,7 @@ export default function Layout() {
 
           <div
             onClick={() => setOpen(true)}
-            className="bg-gray-900 relative pointer-events-auto cursor-pointer"
+            className="bg-gray-900 mb-4 relative pointer-events-auto cursor-pointer"
           >
             <div className="w-full flex items-center text-sm leading-6 text-gray-400 rounded-md ring-1 ring-gray-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-gray-600 bg-gray-800 highlight-white/5 hover:bg-gray-700">
               <svg

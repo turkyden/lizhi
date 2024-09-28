@@ -86,10 +86,12 @@ export default function () {
           src={albumList[0].cover}
           alt="cover"
         />
-        <div className="pl-10 space-y-4">
-          <h3 className="text-3xl text-white">{artist.replace('专辑-', '')}</h3>
-          <div className="pt-4">李志</div>
-          <div className="flex space-x-4">
+        <div className="pl-10 space-y-2">
+          <h3 className="mb-8 text-3xl text-white font-bold">
+            {artist.replace('专辑-', '')}
+          </h3>
+          <div className="">李志</div>
+          <div className="flex space-x-4 text-gray-400">
             <span>{albumInfo?.year || '未知年份'}</span>
             <span>{albumInfo?.publisher}</span>
           </div>
