@@ -6,15 +6,15 @@ function Download() {
       <div className="flex items-center space-x-10">
         <DownloadButton
           platform="MacOS"
-          url="https://github.com/tw93/Pake/releases/download/V2.5.1/LiZhi.dmg"
+          url="https://github.com/tw93/Pake/releases/latest/download/LiZhi.dmg"
         />
         <DownloadButton
           platform="Windows"
-          url="https://github.com/tw93/Pake/releases/download/V2.5.1/LiZhi_x64.msi"
+          url="https://github.com/tw93/Pake/releases/latest/download/LiZhi_x64.msi"
         />
         <DownloadButton
           platform="Linux"
-          url="https://github.com/tw93/Pake/releases/download/V2.5.1/LiZhi_x86_64.deb"
+          url="https://github.com/tw93/Pake/releases/latest/download/LiZhi_x86_64.deb"
         />
       </div>
 
