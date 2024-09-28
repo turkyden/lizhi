@@ -1,7 +1,8 @@
+import albumInfoList from '@/assets/albumInfo.json';
 import Back from '@/components/back';
 import PlayerContext from '@/contexts/playerContext';
-import type { SongInfo, SongList } from '@/types';
-import { useContext, useState } from 'react';
+import type { AlbumInfo, SongInfo, SongList } from '@/types';
+import { useContext, useMemo, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import { useParams } from 'umi';
 
@@ -9,6 +10,15 @@ import DownloadIcon from '@/assets/download.svg';
 import LoadingIcon from '@/assets/loading.svg';
 import LargePlayIcon from '@/assets/play-large.svg';
 import PlayIcon from '@/assets/play.svg';
+
+function getAlbumInfo(name: string): AlbumInfo | null {
+  for (let i = 0; i < albumInfoList.length; i++) {
+    if (albumInfoList[i].name === name) {
+      return albumInfoList[i];
+    }
+  }
+  return null;
+}
 
 interface ISong {
   artist: string;
@@ -22,6 +32,10 @@ export default function () {
   const { player, songList } = useContext(PlayerContext);
   const params = useParams();
   const artist = params.id as string;
+  const albumInfo = useMemo(
+    () => getAlbumInfo(artist.replace('专辑-', '')),
+    [artist],
+  );
 
   const albumList = (window as unknown as { list: SongList }).list?.filter(
     (v) => v.artist === artist,
@@ -76,9 +90,8 @@ export default function () {
           <h3 className="text-3xl text-white">{artist.replace('专辑-', '')}</h3>
           <div className="pt-4">李志</div>
           <div className="flex space-x-4">
-            <span>2007-11-12 </span>
-            <span>麦田音乐</span>
-            <span>发行</span>
+            <span>{albumInfo?.year || '未知年份'}</span>
+            <span>{albumInfo?.publisher}</span>
           </div>
 
           <div className="flex space-x-4 pt-4">
@@ -134,7 +147,7 @@ export default function () {
       <div className="pt-8">
         {albumList.map((a, i) => (
           <div
-            className="flex items-center py-4 hover:bg-white/10 rounded-lg transition group"
+            className="flex items-center px-2 py-4 hover:bg-white/10 rounded-lg transition group"
             key={i}
           >
             <div
@@ -144,7 +157,7 @@ export default function () {
               <span className="pr-4 text-gray-400">
                 {i + 1 > 9 ? i + 1 : '0' + (i + 1)}
               </span>
-              <span className="">{a.name}</span>
+              <span className="select-none">{a.name}</span>
             </div>
             <div className="w-1/5 text-gray-500">李志</div>
             <div className="w-1/5 flex justify-center items-center space-x-8">
