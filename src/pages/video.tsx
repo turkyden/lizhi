@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'umi';
+import Back from '@/components/back';
+import PlayerContext from '@/contexts/playerContext';
 import Hls from 'hls.js';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 const videoList = [
   {
@@ -22,16 +23,19 @@ const videoList = [
 ];
 
 function Video() {
-  const ref = useRef<HTMLMediaElement>();
-
-  const hls = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const hls = useRef<Hls | null>(null);
+  const { player } = useContext(PlayerContext);
 
   const [index, setIndex] = useState(2);
 
   useEffect(() => {
-    document.querySelector('.music-player-audio')?.pause();
-    const video = ref.current;
+    if (!videoRef.current) return;
+
+    player?.pause();
+    const video = videoRef.current;
     const videoSrc = videoList[index].url;
+
     if (Hls.isSupported()) {
       hls.current = new Hls();
       hls.current.loadSource(videoSrc);
@@ -41,44 +45,23 @@ function Video() {
     }
   }, []);
 
-  const handleSelect = (index) => {
+  const handleSelect = (index: number) => {
+    if (!hls.current || !videoRef.current) return;
+
     setIndex(index);
     hls.current.loadSource(videoList[index].url);
-    hls.current.attachMedia(ref.current);
+    hls.current.attachMedia(videoRef.current);
   };
 
   return (
     <>
-      <Link
-        className="fixed flex items-center group hover:text-white cursor-pointer text-white"
-        to="/"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 transition transform group-hover:-translate-x-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M10 19l-7-7m0 0l7-7m-7 7h18"
-          />
-        </svg>
-        <span className="pl-2">Back</span>
-      </Link>
+      <Back to="/" />
+
       <div className="w-full h-full flex flex-col justify-center items-center">
         <div>
           {/* <div className="text-3xl font-bold pb-4">Live 现场</div> */}
           <div className="w-[800px] border-solid border-white/5 border shadow-xl">
-            <video
-              className="w-full"
-              controls
-              autoplay="autoplay"
-              ref={ref}
-            ></video>
+            <video className="w-full" controls autoPlay ref={videoRef}></video>
           </div>
           <div className="pt-10 grid grid-cols-2 gap-2">
             {videoList.map((v, k) => (

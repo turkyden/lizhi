@@ -2,14 +2,19 @@ import { defineConfig } from 'umi';
 
 export default defineConfig({
   title: '李志 BB 音乐作品播放器',
-  nodeModulesTransform: {
-    type: 'none',
-  },
-  favicon: '/favico.png',
+  favicons: ['/favico.png'],
   hash: true,
   history: {
     type: 'hash',
   },
+  routes: [
+    { path: '/', component: 'index' },
+    { path: '/about', component: 'about' },
+    { path: '/download', component: 'download' },
+    { path: '/star', component: 'star' },
+    { path: '/video', component: 'video' },
+    { path: '/album/:id', component: 'album/index' },
+  ],
   metas: [
     {
       name: 'keywords',
@@ -20,6 +25,7 @@ export default defineConfig({
       content: '全网最好用的李志(逼哥)音乐作品专属播放器',
     },
   ],
+
   analytics: {
     baidu: '023e4ef604935de6708edb9e61f17191',
   },
@@ -46,5 +52,7 @@ export default defineConfig({
     }));
     `,
   ],
-  fastRefresh: {},
+
+  fastRefresh: true,
+  tailwindcss: {},
 });
