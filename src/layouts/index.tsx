@@ -1,5 +1,6 @@
+import PlayerContext from '@/contexts/playerContext';
 import type { SongList } from '@/types';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import 'react-cmdk/dist/cmdk.css';
 import CommandPalette, {
   filterItems,
@@ -7,13 +8,17 @@ import CommandPalette, {
   useHandleOpenCommandPalette,
 } from 'react-cmdk/src/index';
 import ReactJkMusicPlayer, {
+  type ReactJkMusicPlayerAudioListProps,
+  type ReactJkMusicPlayerInstance,
   type ReactJkMusicPlayerProps,
 } from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 import { Link, useLocation, useOutlet } from 'umi';
 import './index.css';
 
-const audioLists = (window as unknown as { list: SongList }).list?.map((v) => {
+const songList = (window as unknown as { list: SongList }).list || [];
+
+const audioLists: ReactJkMusicPlayerAudioListProps[] = songList.map((v) => {
   return {
     name: `${v.name} · ${v.artist}`.replace('专辑-', ''),
     musicSrc: v.url,
@@ -42,6 +47,7 @@ export default function Layout() {
   const [page, setPage] = useState<'root' | 'albums'>('root');
   const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState('');
+  const playerInstance = useRef<ReactJkMusicPlayerInstance | null>(null);
   const location = useLocation();
   const outlet = useOutlet();
 
@@ -229,9 +235,18 @@ export default function Layout() {
         />
       </div>
       <div className="w-[100% - 256px] h-screen overflow-y-auto px-8 py-10">
-        {outlet}
+        <PlayerContext.Provider
+          value={{ player: playerInstance.current, songList }}
+        >
+          {outlet}
+        </PlayerContext.Provider>
       </div>
-      <ReactJkMusicPlayer {...options} />
+      <ReactJkMusicPlayer
+        {...options}
+        getAudioInstance={(instance) => {
+          playerInstance.current = instance;
+        }}
+      />
       <a
         id="github-link"
         style={{

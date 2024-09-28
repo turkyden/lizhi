@@ -1,40 +1,8 @@
-import type { SongList } from '@/types';
+import PlayerContext from '@/contexts/playerContext';
+import type { SongInfo, SongList } from '@/types';
 import { message } from 'antd';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useParams } from 'umi';
-
-const ALBUM = [
-  {
-    title: '被禁忌的游戏',
-  },
-  {
-    title: '这个世界会好吗',
-  },
-  {
-    title: '梵高先生',
-  },
-  {
-    title: '我爱南京',
-  },
-  {
-    title: '你好，郑州',
-  },
-  {
-    title: '1701',
-  },
-  {
-    title: 'F',
-  },
-  {
-    title: '这个世界会好吗',
-  },
-  {
-    title: '8',
-  },
-  {
-    title: '在每一条伤心的应天大街上',
-  },
-];
 
 interface ISong {
   artist: string;
@@ -45,6 +13,7 @@ interface ISong {
 
 export default function () {
   const [currDownloadingName, setcurrDownloadingName] = useState('');
+  const { player, songList } = useContext(PlayerContext);
   const params = useParams();
   const artist = params.id as string;
 
@@ -52,13 +21,15 @@ export default function () {
     (v) => v.artist === artist,
   );
 
-  const onClick = (name: string) => {
-    const array = document.querySelectorAll('.audio-item');
-    for (let index = 0; index < array.length; index++) {
-      const element = array[index];
-      const target = element.querySelector('.player-name') as HTMLElement;
-      if (target?.title.includes(name)) {
-        target.click();
+  if (!albumList) return <></>;
+
+  const onClick = (info: SongInfo) => {
+    if (!player || !player.playByIndex) return;
+
+    for (let i = 0; i < songList.length; i++) {
+      if (songList[i].url === info.url) {
+        player.playByIndex(i);
+        return;
       }
     }
   };
@@ -124,7 +95,7 @@ export default function () {
 
           <div className="flex space-x-4 pt-4">
             <div
-              onClick={() => onClick(albumList[0].name)}
+              onClick={() => onClick(albumList[0])}
               className="transition hover:text-white text-center py-2 px-6 rounded-full bg-green-500 text-white cursor-pointer hover:opacity-90 shadow-lg shadow-green-500/50 flex items-center"
             >
               <svg
@@ -185,10 +156,13 @@ export default function () {
 
       <div className="pt-8">
         {albumList.map((a, i) => (
-          <div className="flex items-center py-4 hover:bg-white/10 rounded-lg transition group">
+          <div
+            className="flex items-center py-4 hover:bg-white/10 rounded-lg transition group"
+            key={i}
+          >
             <div
               className="w-3/5 pl-2 text-white group-hover:text-green-500 cursor-pointer"
-              onClick={() => onClick(a.name)}
+              onClick={() => onClick(a)}
             >
               <span className="pr-4">{i + 1 > 9 ? i + 1 : '0' + (i + 1)}</span>
               <span className="">{a.name}</span>
@@ -197,7 +171,7 @@ export default function () {
             <div className="w-1/5 flex justify-center items-center space-x-8">
               <span
                 className="cursor-pointer text-gray-500 hover:text-green-500 transition"
-                onClick={() => onClick(a.name)}
+                onClick={() => onClick(a)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
