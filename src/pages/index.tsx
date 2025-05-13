@@ -1,4 +1,5 @@
 import { Link } from 'umi';
+import nj_lizhi from '../assets/nj-lizhi.json';
 
 const LIVE = [
   {
@@ -19,6 +20,25 @@ const LIVE = [
   },
 ];
 
+// 从 nj-lizhi 远端 json 音乐合集中解析数据结构
+function getAlbum(): IAlbumList {
+  const groupBy = (arr: any, fn: any) =>
+    arr
+      .map(typeof fn === 'function' ? fn : (val: any) => val[fn])
+      .reduce((acc: any, val: any, i: any) => {
+        acc[val] = (acc[val] || []).concat(arr[i]);
+        return acc;
+      }, {});
+  
+  const obj = groupBy(nj_lizhi, 'artist');
+  
+  return Object.keys(obj).map(a => ({
+    id: a,
+    name: a.replace('专辑-', ''),
+    cover: obj[a][1]['cover']
+  }));
+}
+
 interface IAlbum {
   id: string;
   cover: string;
@@ -28,6 +48,9 @@ interface IAlbum {
 interface IAlbumList extends Array<IAlbum> {}
 
 export default function IndexPage() {
+  
+  const album = getAlbum();
+
   return (
     <>
       <div className="text-3xl font-bold">专辑</div>
@@ -47,7 +70,7 @@ export default function IndexPage() {
           </div>
           <div className="pt-4">我们不能失去信仰 · 李志</div>
         </Link>
-        {((window as any).album as IAlbumList).map((v, i) => (
+        {album.map((v, i) => (
           <Link
             className="mr-6 mb-8 hover:text-white text-white"
             key={v.id}

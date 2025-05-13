@@ -80,7 +80,6 @@ npm run start
 - [x] Web PC 端
 - [x] 客户端
 - [ ] H5 移动端
-- [ ] 评论区
 
 ## 跨平台
 
@@ -119,9 +118,9 @@ npm run start
 
 [![Stargazers repo roster for @turkyden/lizhi](https://reporoster.com/stars/turkyden/lizhi)](https://github.com/turkyden/lizhi/stargazers)
 
-更多潮流软件分享，可以关注我的「微信视频号」
+更多独立开发 & 潮流软件分享，可以关注我 ~
 
-<img width="200" src="https://user-images.githubusercontent.com/24560160/230781326-de84d919-1410-4b8a-ad81-3b0f6ffbe7d2.png">
+<img width="300" alt="微信公众号" src="https://github.com/user-attachments/assets/9406771c-6cea-4bfb-a980-caefacfda510">
 
 ## 版权声明
 
@@ -129,4 +128,4 @@ MIT
 
 版权全部归于李志先生所有，本人仅从互联网搜集资源进行合并整理。从李志公众号发布的声明来看，他也希望会得到传播，所以我个人贸然建立了此 Repository，并已发送邮件告知李志先生。若邮件回复不允许，我会立即删除。
 
-[MIT](./LICENSE) & Copyright © 1998 - 2022 LiZhi. All Rights Reserveds.
+[MIT](./LICENSE) & Copyright © 1998 - 2025 LiZhi. All Rights Reserveds.
