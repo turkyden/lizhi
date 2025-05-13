@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'umi';
 
 const LIVE = [
@@ -28,15 +27,6 @@ interface IAlbum {
 
 interface IAlbumList extends Array<IAlbum> {}
 
-interface ISong {
-  artist: string;
-  cover: string;
-  name: string;
-  url: string;
-}
-
-interface ISongList extends Array<ISong> {}
-
 export default function IndexPage() {
   return (
     <>
@@ -57,7 +47,7 @@ export default function IndexPage() {
           </div>
           <div className="pt-4">我们不能失去信仰 · 李志</div>
         </Link>
-        {(window.album as IAlbumList).map((v, i) => (
+        {((window as any).album as IAlbumList).map((v, i) => (
           <Link
             className="mr-6 mb-8 hover:text-white text-white"
             key={v.id}
