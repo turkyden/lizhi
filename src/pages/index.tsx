@@ -29,13 +29,13 @@ function getAlbum(): IAlbumList {
         acc[val] = (acc[val] || []).concat(arr[i]);
         return acc;
       }, {});
-  
+
   const obj = groupBy(nj_lizhi, 'artist');
-  
-  return Object.keys(obj).map(a => ({
+
+  return Object.keys(obj).map((a) => ({
     id: a,
     name: a.replace('专辑-', ''),
-    cover: obj[a][1]['cover']
+    cover: obj[a][1]['cover'],
   }));
 }
 
@@ -48,13 +48,14 @@ interface IAlbum {
 interface IAlbumList extends Array<IAlbum> {}
 
 export default function IndexPage() {
-  
   const album = getAlbum();
 
   return (
     <>
       <div className="text-3xl font-bold">专辑</div>
-      <div className="text-xl py-4">Hi 朋友，今日为你推荐</div>
+      <div className="text-xl py-4">
+        朋友，{new Date().getFullYear()} 年了，这个世界还会好么？
+      </div>
 
       <div className="flex flex-wrap">
         <Link className="mr-6 mb-8 hover:text-white text-white" to={`/about`}>
