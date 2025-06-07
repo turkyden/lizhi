@@ -2,6 +2,7 @@ import GithubLink from '@/components/githubLink';
 import SidebarItem from '@/components/sidebarItem';
 import PlayerContext from '@/contexts/playerContext';
 import type { SongList } from '@/types';
+import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useEffect, useRef, useState } from 'react';
 import 'react-cmdk/dist/cmdk.css';
@@ -124,6 +125,7 @@ export default function Layout() {
   return (
     <div className="w-screen h-screen bg-black text-white pl-64">
       <SpeedInsights />
+      <Analytics />
       <div className="fixed top-0 left-0 w-64 h-screen p-10 pb-0 flex flex-col justify-between">
         <div>
           <h2 className="text-white text-3xl mb-4 font-bold">李志</h2>
