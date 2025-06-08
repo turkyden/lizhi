@@ -1,7 +1,7 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  title: '李志 BB 音乐作品播放器',
+  title: '李志，音乐播放器',
   favicons: ['/favicon.png'],
   hash: true,
   history: {
@@ -22,7 +22,7 @@ export default defineConfig({
     },
     {
       name: 'description',
-      content: '全网最好用的李志(逼哥)音乐作品专属播放器',
+      content: '全网最好的李志音乐作品播放器',
     },
   ],
 
