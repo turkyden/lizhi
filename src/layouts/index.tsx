@@ -2,7 +2,7 @@ import GithubLink from '@/components/githubLink';
 import SidebarItem from '@/components/sidebarItem';
 import PlayerContext from '@/contexts/playerContext';
 import type { SongList } from '@/types';
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useEffect, useRef, useState } from 'react';
 import 'react-cmdk/dist/cmdk.css';
