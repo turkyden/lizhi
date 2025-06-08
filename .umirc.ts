@@ -1,7 +1,7 @@
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  title: '李志，音乐播放器',
+  title: '李志音乐播放器',
   favicons: ['/favicon.png'],
   hash: true,
   history: {
@@ -18,7 +18,7 @@ export default defineConfig({
   metas: [
     {
       name: 'keywords',
-      content: '李志，逼哥，南京市民李先生，音乐作品集，专辑，播放器',
+      content: '李志，音乐作品集，专辑，播放器，逼哥，南京市民李先生，梵高先生',
     },
     {
       name: 'description',
