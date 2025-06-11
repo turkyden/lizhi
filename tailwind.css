@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animate-spin {
+    animation: spin 15s linear infinite;
+}
