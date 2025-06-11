@@ -2,7 +2,7 @@ function Star() {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <div className="flex items-center space-x-10">
-        <img className="w-72" src="/qrcode/wxshop.jpeg" alt="qrcode" />
+        <img className="w-72" src="/qrcode/wxshop.png" alt="qrcode" />
         <div className="space-y-10">
           <div className="p-10 shadow-xl bg-gradient-to-r from-gray-900 to-black border-4 border-solid border-gray-500 rounded-full inline-block">
             <img
