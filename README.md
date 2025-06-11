@@ -120,7 +120,7 @@ npm run start
 
 更多独立开发 & 潮流软件分享，可以关注我 ~
 
-<img width="300" alt="微信公众号" src="https://github.com/user-attachments/assets/9406771c-6cea-4bfb-a980-caefacfda510">
+<img width="300" alt="微信公众号" src="./public/qrcode/wxshop.png">
 
 ## 版权声明
 
