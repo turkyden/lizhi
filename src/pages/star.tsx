@@ -16,7 +16,7 @@ function Star() {
               送你一本李先生的{' '}
               <a
                 className="text-pink-500 hover:text-pink-500 hover:underline"
-                href="https://mp.weixin.qq.com/s/C4deDOeFzvR5l9Hbg4f5Gg"
+                href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkyMTg2NTE2Mw==&action=getalbum&album_id=4027337809487642629#wechat_redirect"
                 target="_blank"
               >
                 《吉他谱》
