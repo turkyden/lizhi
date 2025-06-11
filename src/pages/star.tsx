@@ -6,8 +6,8 @@ function Star() {
         <div className="space-y-10">
           <div className="p-10 shadow-xl bg-gradient-to-r from-gray-900 to-black border-4 border-solid border-gray-500 rounded-full inline-block">
             <img
-              className="w-36 shadow-2xl rounded-full"
-              src="/qrcode/wxshop_qrcode.png"
+              className="w-36 shadow-2xl rounded-full animate-spin"
+              src="https://testingcf.jsdelivr.net/gh/nj-lizhi/song@main/audio/梵高先生/cover.png"
               alt="qrcode"
             />
           </div>
