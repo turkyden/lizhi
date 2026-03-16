@@ -5,7 +5,6 @@ export interface SongInfo {
   cover: string;
 }
 
-/** @see https://github.com/nj-lizhi/song/blob/main/audio/list-v2.js */
 export type SongList = SongInfo[];
 
 export interface AlbumInfo {
@@ -13,4 +12,10 @@ export interface AlbumInfo {
   cover: string;
   year: number | null;
   publisher: string;
+}
+
+export interface LiveInfo {
+  name: string;
+  post: string;
+  url: string;
 }
