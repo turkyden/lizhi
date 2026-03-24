@@ -19,9 +19,16 @@ import ReactJkMusicPlayer, {
   type ReactJkMusicPlayerProps,
 } from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
+import Script from 'next/script';
 
 import ZhuangB from '@/assets/lizhi.png';
 import Image from 'next/image';
+
+type WindowWithList = Window & { list?: SongList };
+
+function getWindowSongList(): SongList {
+  return (window as WindowWithList).list ?? [];
+}
 
 export default function ClientLayout({
   children,
@@ -37,10 +44,15 @@ export default function ClientLayout({
 
   useHandleOpenCommandPalette(setOpen);
 
+  // Called when the external song list script has finished loading
+  const handleScriptLoad = () => {
+    setSongList(getWindowSongList());
+  };
+
   useEffect(() => {
-    const list = (window as unknown as { list: SongList }).list || [];
-    setSongList(list);
     setShowDownload(!window.location.href.includes('from=pake'));
+    // Handle case where the script loaded before this component mounted
+    setSongList(getWindowSongList());
   }, []);
 
   useEffect(() => {
@@ -119,6 +131,11 @@ export default function ClientLayout({
 
   return (
     <div className="w-screen h-screen bg-black text-white pl-64">
+      <Script
+        src="https://testingcf.jsdelivr.net/gh/nj-lizhi/song@main/audio/list-v2.js"
+        strategy="afterInteractive"
+        onLoad={handleScriptLoad}
+      />
       <SpeedInsights />
       <Analytics />
       <div className="fixed top-0 left-0 w-64 h-screen p-10 pb-0 flex flex-col justify-between">

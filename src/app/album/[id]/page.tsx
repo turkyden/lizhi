@@ -87,7 +87,7 @@ export default function AlbumPage() {
       <div className="flex">
         <img
           className="w-48 h-48 rounded-xl"
-          src={albumList[0].cover}
+          src={encodeURI(albumList[0].cover)}
           alt="cover"
         />
         <div className="pl-10 space-y-2">

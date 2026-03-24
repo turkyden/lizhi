@@ -75,7 +75,7 @@ export default function IndexPage() {
           >
             <img
               className="w-48 h-48 rounded-xl transition transform hover:scale-105 cursor-pointer"
-              src={v.cover}
+              src={encodeURI(v.cover)}
               alt="cover"
             />
             <div className="pt-4">{v.name}</div>
