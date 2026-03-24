@@ -1,3 +1,5 @@
+'use client';
+
 import Back from '@/components/back';
 import PlayerContext from '@/contexts/playerContext';
 import Hls from 'hls.js';
@@ -22,7 +24,7 @@ const videoList = [
   },
 ];
 
-function Video() {
+export default function VideoPage() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const hls = useRef<Hls | null>(null);
   const { player } = useContext(PlayerContext);
@@ -43,13 +45,14 @@ function Video() {
     } else if (video?.canPlayType('application/vnd.apple.mpegurl')) {
       video.src = videoSrc;
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [player]);
 
-  const handleSelect = (index: number) => {
+  const handleSelect = (i: number) => {
     if (!hls.current || !videoRef.current) return;
 
-    setIndex(index);
-    hls.current.loadSource(videoList[index].url);
+    setIndex(i);
+    hls.current.loadSource(videoList[i].url);
     hls.current.attachMedia(videoRef.current);
   };
 
@@ -59,7 +62,6 @@ function Video() {
 
       <div className="w-full h-full flex flex-col justify-center items-center">
         <div>
-          {/* <div className="text-3xl font-bold pb-4">Live 现场</div> */}
           <div className="w-[800px] border-solid border-white/5 border shadow-xl">
             <video className="w-full" controls autoPlay ref={videoRef}></video>
           </div>
@@ -81,5 +83,3 @@ function Video() {
     </>
   );
 }
-
-export default Video;

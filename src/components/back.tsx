@@ -1,7 +1,8 @@
-import { ReactSVG } from 'react-svg';
-import { Link } from 'umi';
+'use client';
 
 import BackIcon from '@/assets/back.svg';
+import Link from 'next/link';
+import { ReactSVG } from 'react-svg';
 
 interface BackButtonProps {
   to: string;
@@ -11,7 +12,7 @@ function Back(props: BackButtonProps) {
   return (
     <Link
       className="mb-5 flex items-center group hover:text-white cursor-pointer text-white"
-      to={props.to}
+      href={props.to}
     >
       <ReactSVG
         src={BackIcon}

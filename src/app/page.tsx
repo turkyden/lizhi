@@ -1,5 +1,7 @@
-import { Link } from 'umi';
-import nj_lizhi from '../assets/nj-lizhi.json';
+'use client';
+
+import nj_lizhi from '@/assets/nj-lizhi.json';
+import Link from 'next/link';
 
 const LIVE = [
   {
@@ -20,32 +22,29 @@ const LIVE = [
   },
 ];
 
-// 从 nj-lizhi 远端 json 音乐合集中解析数据结构
-function getAlbum(): IAlbumList {
-  const groupBy = (arr: any, fn: any) =>
-    arr
-      .map(typeof fn === 'function' ? fn : (val: any) => val[fn])
-      .reduce((acc: any, val: any, i: any) => {
-        acc[val] = (acc[val] || []).concat(arr[i]);
-        return acc;
-      }, {});
-
-  const obj = groupBy(nj_lizhi, 'artist');
-
-  return Object.keys(obj).map((a) => ({
-    id: a,
-    name: a.replace('专辑-', ''),
-    cover: obj[a][1]['cover'],
-  }));
-}
-
 interface IAlbum {
   id: string;
   cover: string;
   name: string;
 }
 
-interface IAlbumList extends Array<IAlbum> {}
+function getAlbum(): IAlbum[] {
+  const groupBy = (arr: any[], fn: any) =>
+    arr
+      .map(typeof fn === 'function' ? fn : (val: any) => val[fn])
+      .reduce((acc: any, val: any, i: number) => {
+        acc[val] = (acc[val] || []).concat(arr[i]);
+        return acc;
+      }, {});
+
+  const obj = groupBy(nj_lizhi, 'artist');
+
+  return Object.keys(obj as Record<string, any[]>).map((a) => ({
+    id: a,
+    name: a.replace('专辑-', ''),
+    cover: (obj as Record<string, any[]>)[a]?.[1]?.['cover'] ?? (obj as Record<string, any[]>)[a]?.[0]?.['cover'],
+  }));
+}
 
 export default function IndexPage() {
   const album = getAlbum();
@@ -58,11 +57,8 @@ export default function IndexPage() {
       </div>
 
       <div className="flex flex-wrap">
-        <Link className="mr-6 mb-8 hover:text-white text-white" to={`/about`}>
+        <Link className="mr-6 mb-8 hover:text-white text-white" href="/about">
           <div className="block text-white w-[410px] h-48 rounded-xl overflow-hidden">
-            {/* <video className='w-full' poster='https://www.lizhi334.com/wp-content/uploads/2022/08/lizhi-20-scaled.jpeg' loop muted autoPlay>
-              <source src="https://www.lizhi334.com/wp-content/uploads/2022/03/%E9%A6%96%E9%A1%B5.mp4" type='video/mp4' />
-            </video> */}
             <img
               className="object-cover w-full h-48 rounded-xl transition transform hover:scale-105 cursor-pointer"
               src="/post/lizhi.jpeg"
@@ -71,11 +67,11 @@ export default function IndexPage() {
           </div>
           <div className="pt-4">我们不能失去信仰 · 李志</div>
         </Link>
-        {album.map((v, i) => (
+        {album.map((v) => (
           <Link
             className="mr-6 mb-8 hover:text-white text-white"
             key={v.id}
-            to={`/album/${v.id}`}
+            href={`/album/${encodeURIComponent(v.id)}`}
           >
             <img
               className="w-48 h-48 rounded-xl transition transform hover:scale-105 cursor-pointer"
@@ -92,11 +88,11 @@ export default function IndexPage() {
       <div className="text-3xl font-bold py-6">Live 现场</div>
 
       <div className="flex flex-wrap">
-        {LIVE.map((v, i) => (
+        {LIVE.map((v) => (
           <Link
             className="mr-6 mb-8 hover:text-white text-white"
             key={v.title}
-            to="/video"
+            href="/video"
           >
             <img
               className="w-48 h-48 rounded-xl transition transform hover:scale-110 cursor-pointer"

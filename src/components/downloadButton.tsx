@@ -1,3 +1,5 @@
+'use client';
+
 import LinuxIcon from '@/assets/linux.svg';
 import MacOSIcon from '@/assets/mac.svg';
 import WindowsIcon from '@/assets/windows.svg';

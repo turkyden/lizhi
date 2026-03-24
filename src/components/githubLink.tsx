@@ -1,3 +1,5 @@
+'use client';
+
 function GithubLink() {
   return (
     <a
