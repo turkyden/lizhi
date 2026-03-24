@@ -1,4 +1,6 @@
-function Star() {
+'use client';
+
+export default function StarPage() {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <div className="flex items-center space-x-10">
@@ -8,7 +10,7 @@ function Star() {
             <img
               className="w-36 shadow-2xl rounded-full animate-spin"
               src="https://testingcf.jsdelivr.net/gh/nj-lizhi/song@main/audio/梵高先生/cover.png"
-              alt="qrcode"
+              alt="album cover"
             />
           </div>
           <div className="space-y-2 bg-gray-50/10 rounded-xl p-4">
@@ -18,6 +20,7 @@ function Star() {
                 className="text-pink-500 hover:text-pink-500 hover:underline"
                 href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkyMTg2NTE2Mw==&action=getalbum&album_id=4027337809487642629#wechat_redirect"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 《吉他谱》
               </a>
@@ -37,5 +40,3 @@ function Star() {
     </div>
   );
 }
-
-export default Star;

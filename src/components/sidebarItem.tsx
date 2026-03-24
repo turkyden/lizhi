@@ -1,4 +1,7 @@
-import { Link, useLocation } from 'umi';
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface SidebarItemProps {
   emoji: string;
@@ -7,14 +10,14 @@ interface SidebarItemProps {
 }
 
 function SidebarItem(props: SidebarItemProps) {
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <Link
-      to={props.to}
+      href={props.to}
       className={`block text-white hover:text-white transition py-1 px-4 rounded hover:bg-gray-800 cursor-pointer ${
-        ((props.to === '/' && location.pathname === '/') ||
-          (props.to !== '/' && location.pathname.startsWith(props.to))) &&
+        ((props.to === '/' && pathname === '/') ||
+          (props.to !== '/' && pathname.startsWith(props.to))) &&
         '!bg-green-500 shadow shadow-green-500/50'
       }`}
     >

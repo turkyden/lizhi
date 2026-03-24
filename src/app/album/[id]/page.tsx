@@ -1,10 +1,12 @@
+'use client';
+
 import albumInfoList from '@/assets/albumInfo.json';
 import Back from '@/components/back';
 import PlayerContext from '@/contexts/playerContext';
 import type { AlbumInfo, SongInfo, SongList } from '@/types';
-import { useContext, useMemo, useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { ReactSVG } from 'react-svg';
-import { useParams } from 'umi';
 
 import DownloadIcon from '@/assets/download.svg';
 import LoadingIcon from '@/assets/loading.svg';
@@ -14,7 +16,7 @@ import PlayIcon from '@/assets/play.svg';
 function getAlbumInfo(name: string): AlbumInfo | null {
   for (let i = 0; i < albumInfoList.length; i++) {
     if (albumInfoList[i].name === name) {
-      return albumInfoList[i];
+      return albumInfoList[i] as AlbumInfo;
     }
   }
   return null;
@@ -27,21 +29,25 @@ interface ISong {
   url: string;
 }
 
-export default function () {
+export default function AlbumPage() {
   const [currDownloadingName, setcurrDownloadingName] = useState('');
+  const [albumList, setAlbumList] = useState<SongList>([]);
   const { player, songList } = useContext(PlayerContext);
   const params = useParams();
-  const artist = params.id as string;
+  const artist = decodeURIComponent(params.id as string);
   const albumInfo = useMemo(
     () => getAlbumInfo(artist.replace('专辑-', '')),
     [artist],
   );
 
-  const albumList = (window as unknown as { list: SongList }).list?.filter(
-    (v) => v.artist === artist,
-  );
+  useEffect(() => {
+    const list = (window as unknown as { list: SongList }).list?.filter(
+      (v) => v.artist === artist,
+    );
+    setAlbumList(list || []);
+  }, [artist]);
 
-  if (!albumList) return <></>;
+  if (!albumList.length) return <></>;
 
   const onClick = (info: SongInfo) => {
     if (!player || !player.playByIndex) return;
@@ -57,25 +63,23 @@ export default function () {
   const handleDownload = async ({ name, url }: ISong) => {
     setcurrDownloadingName(name);
     try {
-      let res = await fetch(url);
-      let blob = await res.blob();
+      const res = await fetch(url);
+      const blob = await res.blob();
       const a = document.createElement('a');
       document.body.appendChild(a);
       a.style.display = 'none';
-      // 使用获取到的blob对象创建的url
       const targetUrl = window.URL.createObjectURL(blob);
       a.href = targetUrl;
-      // 指定下载的文件名
       a.download = name;
       a.click();
       document.body.removeChild(a);
-      // 移除blob对象的url
       window.URL.revokeObjectURL(url);
     } catch (e) {
       alert(`下载音乐: "${name}" 失败`);
     }
     setcurrDownloadingName('');
   };
+
   return (
     <>
       <Back to="/" />
@@ -83,7 +87,7 @@ export default function () {
       <div className="flex">
         <img
           className="w-48 h-48 rounded-xl"
-          src={albumList[0].cover}
+          src={encodeURI(albumList[0].cover)}
           alt="cover"
         />
         <div className="pl-10 space-y-2">
@@ -104,26 +108,6 @@ export default function () {
               <ReactSVG src={PlayIcon} className="h-4 w-4" />
               <span className="pl-2">播放全部</span>
             </div>
-            {/* <div
-              onClick={() => message.info('开发中！')}
-              className="hidden hover:text-white text-center tracking-widest py-2 px-6 rounded-full border border-solid border-gray-500 hover:bg-gray-800 cursor-pointer items-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-              <span className="pl-2">收藏</span>
-            </div> */}
           </div>
         </div>
       </div>
@@ -132,18 +116,6 @@ export default function () {
         <div className="pb-2 cursor-pointer hover:text-green-500 text-green-500 border-0 border-solid border-b-2 border-green-500">
           歌曲 {albumList.length}
         </div>
-        {/* <div
-          className="hidden pb-2 cursor-not-allowed"
-          onClick={() => message.info('开发中！')}
-        >
-          专辑信息
-        </div>
-        <div
-          className="hidden pb-2 cursor-not-allowed"
-          onClick={() => message.info('开发中！')}
-        >
-          评论
-        </div> */}
       </div>
 
       <div className="pt-8">
@@ -192,3 +164,4 @@ export default function () {
     </>
   );
 }
+

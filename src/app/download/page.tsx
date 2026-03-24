@@ -1,6 +1,8 @@
+'use client';
+
 import DownloadButton from '@/components/downloadButton';
 
-function Download() {
+export default function DownloadPage() {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <div className="flex items-center space-x-10">
@@ -25,5 +27,3 @@ function Download() {
     </div>
   );
 }
-
-export default Download;

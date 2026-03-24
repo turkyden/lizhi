@@ -9,11 +9,17 @@
 
 # production
 /dist
+/.next
+/out
 
 # misc
 .DS_Store
 
-# umi
+# next.js
+/src/.next
+next-env.d.ts
+
+# umi (legacy)
 /src/.umi
 /src/.umi-production
 /src/.umi-test

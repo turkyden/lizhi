@@ -1,3 +1,5 @@
+'use client';
+
 import GithubLink from '@/components/githubLink';
 import SidebarItem from '@/components/sidebarItem';
 import PlayerContext from '@/contexts/playerContext';
@@ -10,65 +12,76 @@ import CommandPalette, {
   filterItems,
   getItemIndex,
   useHandleOpenCommandPalette,
-} from 'react-cmdk/src/index';
+} from 'react-cmdk';
 import ReactJkMusicPlayer, {
   type ReactJkMusicPlayerAudioListProps,
   type ReactJkMusicPlayerInstance,
   type ReactJkMusicPlayerProps,
 } from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
-import { useLocation, useOutlet } from 'umi';
-import './index.css';
+import Script from 'next/script';
 
 import ZhuangB from '@/assets/lizhi.png';
+import Image from 'next/image';
 
-const songList = (window as unknown as { list: SongList }).list || [];
+type WindowWithList = Window & { list?: SongList };
 
-const audioLists: ReactJkMusicPlayerAudioListProps[] = songList.map((v) => {
-  return {
+function getWindowSongList(): SongList {
+  return (window as WindowWithList).list ?? [];
+}
+
+export default function ClientLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [open, setOpen] = useState<boolean>(false);
+  const [search, setSearch] = useState('');
+  const [page, setPage] = useState<'root' | 'albums'>('root');
+  const [songList, setSongList] = useState<SongList>([]);
+  const [showDownload, setShowDownload] = useState(true);
+  const playerInstance = useRef<ReactJkMusicPlayerInstance | null>(null);
+
+  useHandleOpenCommandPalette(setOpen);
+
+  // Called when the external song list script has finished loading
+  const handleScriptLoad = () => {
+    setSongList(getWindowSongList());
+  };
+
+  useEffect(() => {
+    setShowDownload(!window.location.href.includes('from=pake'));
+    // Handle case where the script loaded before this component mounted
+    setSongList(getWindowSongList());
+  }, []);
+
+  useEffect(() => {
+    const panel = document.querySelector('.music-player-panel');
+    const audioPanel = document.querySelector('.audio-lists-panel');
+    if (panel) panel.classList.add('backdrop-blur-md');
+    if (audioPanel) audioPanel.classList.add('backdrop-blur-md');
+  }, [songList]);
+
+  const audioLists: ReactJkMusicPlayerAudioListProps[] = songList.map((v) => ({
     name: `${v.name} · ${v.artist}`.replace('专辑-', ''),
     musicSrc: v.url,
     cover: v.cover,
     singer: '李志',
+  }));
+
+  const options: ReactJkMusicPlayerProps = {
+    audioLists,
+    theme: 'dark',
+    locale: 'zh_CN',
+    showMediaSession: false,
+    autoPlay: false,
+    toggleMode: false,
+    mode: 'full',
+    showLyric: false,
+    showThemeSwitch: false,
+    showReload: false,
+    showDownload: showDownload,
   };
-});
-
-const options: ReactJkMusicPlayerProps = {
-  audioLists,
-  theme: 'dark',
-  locale: 'zh_CN',
-  showMediaSession: false,
-  autoPlay: false,
-  toggleMode: false,
-  mode: 'full',
-  showLyric: false,
-  showThemeSwitch: false,
-  showReload: false,
-  showDownload: !window.location.href.includes('from=pake'),
-};
-
-export default function Layout() {
-  const [active, setActive] = useState('all');
-
-  const [page, setPage] = useState<'root' | 'albums'>('root');
-  const [open, setOpen] = useState<boolean>(false);
-  const [search, setSearch] = useState('');
-  const playerInstance = useRef<ReactJkMusicPlayerInstance | null>(null);
-  const location = useLocation();
-  const outlet = useOutlet();
-
-  useHandleOpenCommandPalette(setOpen);
-
-  useEffect(() => {
-    // @ts-ignore
-    document
-      .querySelector('.music-player-panel')
-      .classList.add('backdrop-blur-md');
-    // @ts-ignore
-    document
-      .querySelector('.audio-lists-panel')
-      .classList.add('backdrop-blur-md');
-  }, []);
 
   const filteredItems = filterItems(
     [
@@ -86,7 +99,7 @@ export default function Layout() {
             id: 'live',
             children: '现场',
             icon: 'SunIcon',
-            href: '/#/video',
+            href: '/video',
           },
           {
             id: 'albums',
@@ -110,12 +123,6 @@ export default function Layout() {
             target: '_blank',
             href: 'https://github.com/turkyden/lizhi-app',
           },
-          // {
-          //   id: 'star',
-          //   children: '赞助我们',
-          //   icon: 'StarIcon',
-          //   href: '/#/star',
-          // },
         ],
       },
     ],
@@ -124,6 +131,11 @@ export default function Layout() {
 
   return (
     <div className="w-screen h-screen bg-black text-white pl-64">
+      <Script
+        src="https://testingcf.jsdelivr.net/gh/nj-lizhi/song@main/audio/list-v2.js"
+        strategy="afterInteractive"
+        onLoad={handleScriptLoad}
+      />
       <SpeedInsights />
       <Analytics />
       <div className="fixed top-0 left-0 w-64 h-screen p-10 pb-0 flex flex-col justify-between">
@@ -174,31 +186,33 @@ export default function Layout() {
             <SidebarItem emoji="📦" text="APP" to="/download" />
             <SidebarItem emoji="🌟" text="赞助" to="/star" />
           </div>
-
-          {/* <br />
-
-          <h3 className="text-gray-500 text-sm mt-8 mb-4">友情赞助</h3>
-          <div className="space-y-2">
-            <SidebarItem emoji='🧡' text='好物' to='/star'/>
-          </div> */}
         </div>
 
-        <img className="w-36 opacity-50" src={ZhuangB} alt="" />
+        <Image
+          className="w-36 opacity-50"
+          src={ZhuangB}
+          alt=""
+          width={144}
+          height={144}
+        />
       </div>
 
       <div className="w-[100% - 256px] h-screen overflow-y-auto px-8 py-10">
         <PlayerContext.Provider
           value={{ player: playerInstance.current, songList }}
         >
-          {outlet}
+          {children}
         </PlayerContext.Provider>
       </div>
-      <ReactJkMusicPlayer
-        {...options}
-        getAudioInstance={(instance) => {
-          playerInstance.current = instance;
-        }}
-      />
+
+      {audioLists.length > 0 && (
+        <ReactJkMusicPlayer
+          {...options}
+          getAudioInstance={(instance) => {
+            playerInstance.current = instance;
+          }}
+        />
+      )}
 
       <GithubLink />
 
@@ -228,7 +242,6 @@ export default function Layout() {
         </CommandPalette.Page>
 
         <CommandPalette.Page id="albums">
-          {/* Projects page */}
           <CommandPalette.FreeSearchAction />
         </CommandPalette.Page>
       </CommandPalette>
